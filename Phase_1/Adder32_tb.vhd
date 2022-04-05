@@ -25,11 +25,11 @@ ARCHITECTURE behavior OF Adder32_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: Adder32 PORT MAP (
-          Inp_A => Inp_A,
-          Inp_B => Inp_B,
-          DataOut => DataOut
-        );
+	uut: Adder32 
+		PORT MAP ( Inp_A => Inp_A,
+					  Inp_B => Inp_B,
+					  DataOut => DataOut
+      );
 		  
    -- Stimulus process
    stim_proc: process
