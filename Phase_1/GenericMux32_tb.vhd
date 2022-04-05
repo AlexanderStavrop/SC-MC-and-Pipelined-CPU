@@ -1,6 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-use work.mux32_pkg.all;
+use work.GenericMux32_pkg.all;
 
 ENTITY GenericMux32_tb IS
 END GenericMux32_tb;
@@ -27,7 +27,7 @@ BEGIN
 		PORT MAP ( DataIn => DataIn,
 					  DataSel => DataSel,
 					  DataOut => DataOut
-		);
+		); 
 
 	-- Stimulus process
 	stim_proc: process

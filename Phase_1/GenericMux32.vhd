@@ -2,14 +2,14 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 -- Declaring the matrix pachage
-package mux32_pkg is
+package GenericMux32_pkg is
   type MuxMatrix32 is array (natural range <>) of std_logic_vector(31 downto 0);
 end package;
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.mux32_pkg.all;
+use work.GenericMux32_pkg.all;
 
 -- Creating the entity of GenerixMux
 entity GenericMux32 is

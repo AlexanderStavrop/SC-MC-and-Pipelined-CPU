@@ -29,6 +29,7 @@ BEGIN
 	-- Stimulus process
 	stim_proc: process
 	begin
+-----------------------------------------------------------------
 	-- Testing some values of the decoder
 		----------------------------------------------------------- 0ns	
 		DataIn <= "00000";	-- Setting the DataIn equal to 0
