@@ -6,18 +6,13 @@ END IFSTAGE_tb;
  
 ARCHITECTURE behavior OF IFSTAGE_tb IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
- 
-    COMPONENT IFSTAGE
-    PORT(
-         PC_sel   : IN  std_logic;
-         PC_LdEn  : IN  std_logic;
-         Reset    : IN  std_logic;
-         Clk      : IN  std_logic;
-         PC_Immed : IN  std_logic_vector(31 downto 0);
-         PC       : OUT  std_logic_vector(31 downto 0)
-        );
-    END COMPONENT;
+   -- Component Declaration for the Unit Under Test (UUT)
+	COMPONENT IFSTAGE
+		port ( PC_sel, PC_LdEn, Reset, Clk : in  std_logic;
+			 PC_Immed 						     : in  std_logic_vector(31 downto 0);
+			 PC 				                 : out std_logic_vector(31 downto 0)
+		);
+   END COMPONENT;
     
 
    -- Input signal
@@ -37,13 +32,14 @@ ARCHITECTURE behavior OF IFSTAGE_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: IFSTAGE PORT MAP ( Clk      => Clk,
-									PC_sel   => PC_sel,
-									PC_LdEn  => PC_LdEn,
-									PC_Immed => PC_Immed,
-									PC       => PC,
-									Reset    => Reset
-					 );
+   uut: IFSTAGE 
+		PORT MAP ( Clk      => Clk,
+					  PC_sel   => PC_sel,
+					  PC_LdEn  => PC_LdEn,
+					  PC_Immed => PC_Immed,
+					  PC       => PC,
+					  Reset    => Reset
+		);
 
    -- Clock process definitions
    clocking: process

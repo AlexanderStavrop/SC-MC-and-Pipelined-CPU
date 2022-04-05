@@ -48,16 +48,18 @@ architecture Behavioral of IFSTAGE is
 	signal AdderOut   : MuxMatrix32 := (others => (others => '0'));
 	signal MuxOut     : std_logic_vector(31 downto 0);
 	signal PcOut	   : std_logic_vector(31 downto 0);
-	
+
+
+-------------------------------------------------- Main Functions --------------------------------------------------                                                                                        	
 begin
-	---------------------------------------------------------------- Adder32
+----------------------------------------------------- Adder32 ------------------------------------------------------
 	ADDR32:Adder32
 		port map ( Inp_A => Adder4Out,
 					  Inp_B => PC_Immed,
 					  DataOut => Adder32Out
 		);
 		
-	---------------------------------------------------------------- Adder4
+------------------------------------------------------ Adder4 ------------------------------------------------------
 	ADDR4:Adder4
 		port map ( DataIn => PcOut,
 					  DataOut => Adder4Out
@@ -66,14 +68,14 @@ begin
 	AdderOut(0) <= Adder4Out;
 	AdderOut(1) <= Adder32Out;
 	
-	---------------------------------------------------------------- Mux32
+------------------------------------------------------ Mux32 -------------------------------------------------------
 	MUX:Mux32
 		port map ( DataIn => AdderOut,
 					  DataSel => PC_sel,
 					  DataOut => MuxOut
 		);	
 		
-	---------------------------------------------------------------- Register32
+---------------------------------------------------- Register32 ----------------------------------------------------
 	REGISTER_PC:Register32
 		port map ( CLK => Clk,
 					  RST => Reset,

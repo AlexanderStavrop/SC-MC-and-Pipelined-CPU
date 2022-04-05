@@ -80,7 +80,7 @@ BEGIN
 		MEM_out <= "00000000000000000000000000000100";  -- Setting MEM_out equal to 4
 		ALU_out <= "00000000000000000000000000000101";  -- Setting ALU_out equal to 5
 		RF_WrData_sel <= '1';								   -- Choosing MEM_out for DataIn
-		immExt <= "00";											-- Choosing sign extend to 32 bits
+		immExt <= "00";											-- Choosing zero-fill on the 16 upper bits
 		wait for Clk_period;										-- Expecting RF_A equal to 4 and RF_A equal to 0
 	   --------------------------------------------------------------------------------------------------------------- 100ns
 		Instr(31 downto 26) <= "000000";						-- 0 irrelevant.
@@ -104,7 +104,7 @@ BEGIN
 		ALU_out <= "00000000000000000000000000001001";  -- Setting ALU_out equal to 9.
 		RF_WrData_sel <= '0';								   -- Choosing ALU_out for DataIn.
 		RF_B_sel <= '1';											-- Choosing the first input on the mux.
-		immExt <= "10";											-- Choosing  	
+		immExt <= "10";											-- Choosing zero-fill on the 16 lower bits
 		wait for Clk_period;										-- Expecting RF_A equal to 7 and RF_B equal to 4.
 		--------------------------------------------------------------------------------------------------------------- 300ns
 
@@ -113,17 +113,17 @@ BEGIN
 		--------------------------------------------------------------------------------------------------------------- 300ns
 		Rst <= '0'; 												-- Setting Rst on
 		--------------------------------------------------------------------------------------------------------------- 300ns
-		RF_WrEn <= '1';											-- Write enable will be off for following tests.
-		Instr(31 downto 26) <= "000000";						-- 0 irrelevant.
-		Instr(25 downto 21) <= "01000";						-- Reading from register 8.
-		Instr(20 downto 16) <= "00111";						-- Writing on register 7.
+		RF_WrEn <= '1';											-- Write enable will be on for following tests
+		Instr(31 downto 26) <= "000000";						-- 0 irrelevant
+		Instr(25 downto 21) <= "01000";						-- Reading from register 8
+		Instr(20 downto 16) <= "00111";						-- Writing on register 7
 		Instr(15 downto 0)  <= "0011111111111111";	   -- Reading from register 7
-		MEM_out <= "00000000000000000000000000001001";  -- Setting MEM_out equal to 9.
-		ALU_out <= "00000000000000000000000000001001";  -- Setting ALU_out equal to 9.
-		RF_WrData_sel <= '0';								   -- Choosing ALU_out for DataIn.
-		RF_B_sel <= '1';											-- Choosing the first input on the mux.
-		immExt <= "11";											-- Choosing  	
-		wait for Clk_period;										-- Expecting RF_A equal to 7 and RF_A equal to 4.
+		MEM_out <= "00000000000000000000000000001001";  -- Setting MEM_out equal to 9
+		ALU_out <= "00000000000000000000000000001001";  -- Setting ALU_out equal to 9
+		RF_WrData_sel <= '0';								   -- Choosing ALU_out for DataIn
+		RF_B_sel <= '1';											-- Choosing the first input on the mux
+		immExt <= "11";											-- Choosing sign extend and 2 left shifts
+		wait for Clk_period;										-- Expecting RF_A equal to 0 and RF_B equal to 0
 		--------------------------------------------------------------------------------------------------------------- 400ns
 		stop_the_clock <= true;
       wait; 

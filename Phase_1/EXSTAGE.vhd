@@ -35,19 +35,21 @@ architecture Behavioral of EXSTAGE is
 	signal mux_32_matrix : MuxMatrix32 := (others  =>(others => '0'));
 	signal mux_32_out    : std_logic_vector (31 downto 0) := (others => '0');
 	
+	
+-------------------------------------------------- Main Functions --------------------------------------------------                                                                                        
 begin
+------------------------------------------------------ Mux32 -------------------------------------------------------
 	mux_32_matrix(0) <= RF_B;
 	mux_32_matrix(1) <= Immed;
 	
-	--------------------------------------------------------------------------- Mux32
-	MUX_1:Mux32
-		port map ( DataIn => mux_32_matrix,
+	MUX_module:Mux32
+		port map ( DataIn  => mux_32_matrix,
 					  DataSel => ALU_Bin_sel,
 					  DataOut => mux_32_out 
 		);
 	
 	
-	--------------------------------------------------------------------------- ALU
+------------------------------------------------------- ALU -------------------------------------------------------
 	ALU_module:ALU
 		port map ( A    => RF_A,
 					  B    => mux_32_out,
@@ -57,5 +59,6 @@ begin
 					  Cout => ALU_cout,
 					  Ovf  => ALU_ovf
 		); 
+		
 end Behavioral;
  

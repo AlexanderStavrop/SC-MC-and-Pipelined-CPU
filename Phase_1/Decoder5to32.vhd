@@ -14,7 +14,7 @@ architecture Behavioral of Decoder5to32 is
 	-- Needed signal
 	signal IN_out : std_logic_vector (31 downto 0); 							
 
--- Main Functions                                                                                        
+-------------------------------------------------- Main Functions --------------------------------------------------                                                                                        
 begin
 	with DataIn select IN_out <= "00000000000000000000000000000001" when "00000",	-- Case for DataIn code 0.
 										  "00000000000000000000000000000010" when "00001", -- Case for DataIn code 1.
@@ -49,6 +49,7 @@ begin
 										  "01000000000000000000000000000000" when "11110", -- Case for DataIn code 30.
 										  "10000000000000000000000000000000" when "11111", -- Case for DataIn code 31.
 										  "00000000000000000000000000000000" when others;  -- Case for every other DataIn.
+	
 	DataOut <= IN_out after 10ns;															   	-- Setting the DataOut variable accordingly.
 end Behavioral;
 
