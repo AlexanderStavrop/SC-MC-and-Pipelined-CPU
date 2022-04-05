@@ -15,9 +15,9 @@ end ALU;
 architecture Behavioral of ALU is
 
 	-- Needed signals
-	signal IN_out  : std_logic_vector (31 downto 0) := (others => '0');
-	signal IN_cout : std_logic_vector (32 downto 0) := (others => '0');
-	signal IN_zero : std_logic;
+	signal IN_out  		  : std_logic_vector (31 downto 0) := (others => '0');
+	signal IN_cout         : std_logic_vector (32 downto 0) := (others => '0');
+	signal IN_zero, IN_ovf : std_logic;
 -------------------------------------------------- Main Functions --------------------------------------------------                                                                                        
 begin	
 	with Op select 
@@ -37,17 +37,18 @@ begin
 									 
 	-- Creating the Zero flag
 	IN_zero <= '1' when IN_out = x"00000000" else '0' ;     																					
-	Zero <= IN_zero after 10ns;
+	Zero    <= IN_zero after 10ns;
 	
 	-- Creating the Overflow flag
-	Ovf  <= (A(31) xor IN_out(31)) when (((A(31) xor B(31)) = '0') and Op = "0000") or (((A(31) xor B(31)) = '1') and Op = "0001") else '0';
+	IN_ovf <= (A(31) xor IN_out(31)) when (((A(31) xor B(31)) = '0') and Op = "0000") or (((A(31) xor B(31)) = '1') and Op = "0001") else '0';
+	ovf    <= IN_ovf after 10ns;
 	
 	-- Creating the Carry out flag
 	with Op select 
 		IN_cout <= ('0' & signed(A)) + ('0' & signed(B)) when "0000",
 					  ('0' & signed(A)) + ('0' & signed(B)) when "0001",
 					  (others => '0')  	   					 when others;
-	Cout <= IN_cout(32);	
+	Cout <= IN_cout(32) after 10ns;	
 	
 	-- Updating the Output from the corresponding variable after 10ns
 	Dout <= IN_out after 10ns;                                                                      														
