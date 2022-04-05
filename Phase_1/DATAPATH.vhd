@@ -1,6 +1,5 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
---use work.Mux32_pkg.all;
 
 entity DATAPATH is
 	 Port ( Clk, Rst   		 					  : in  std_logic;
@@ -59,14 +58,14 @@ architecture Behavioral of DATAPATH is
 	end component;
 
 -- Needed signals
--- DECSTAGE SIGNAL -----------------------------------------------------------------------
+-- DECSTAGE SIGNAL ----------------------------------------------------------------------------------
 	signal busA, busB 							     : std_logic_vector (31 downto 0) := (others => '0');
 	signal IN_ALU_out, IN_MEM_out, IN_IMMED_OUT : std_logic_vector (31 downto 0) := (others => '0');
 
 
 begin
--------------------------------------------------------------------------------- IFSTAGE 
-	IF1:IFSTAGE
+----------------------------------------------------------------------------------------------------- IFSTAGE 
+	IF_module:IFSTAGE
 		port map ( PC_sel   => PC_sel, 
 					  PC_LdEn  => PC_LdEn,
 					  PC_Immed => IN_IMMED_OUT,
@@ -75,8 +74,8 @@ begin
 					  PC       => PC_out                  
 		);
 
--------------------------------------------------------------------------------- DECSTAGE 
-	DEC:DECSTAGE
+----------------------------------------------------------------------------------------------------- DECSTAGE 
+	DEC_module:DECSTAGE
 		port map ( RF_WrEn        => RF_WrEn, 
 					  RF_WrData_sel  => RF_WrData_sel,
 					  RF_B_sel       => RF_B_sel,               
@@ -91,8 +90,8 @@ begin
 					  RF_B			  => busB					
 		);
 		
--------------------------------------------------------------------------------- EXSTAGE 
-	EX1:EXSTAGE
+----------------------------------------------------------------------------------------------------- EXSTAGE 
+	EX_module:EXSTAGE
 		Port map ( RF_A        => busA, 
 				     RF_B        => busB,
 					  Immed		  => IN_IMMED_out,
@@ -104,8 +103,8 @@ begin
 					  ALU_ovf     => ALU_ovf
 		);
 	
--------------------------------------------------------------------------------- MEMSTAGE
-	MEM:MEMSTAGE
+----------------------------------------------------------------------------------------------------- MEMSTAGE
+	MEM_module:MEMSTAGE
 		Port map( ByteOp       => ByteOp,
 					 Mem_WrEn	  => Mem_WrEn,
 					 ALU_MEM_Addr => IN_ALU_out,

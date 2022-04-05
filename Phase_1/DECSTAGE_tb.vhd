@@ -6,26 +6,17 @@ END DECSTAGE_tb;
  
 ARCHITECTURE behavior OF DECSTAGE_tb IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT DECSTAGE
-    PORT(
-         RF_WrEn       : IN  std_logic;
-         RF_WrData_sel : IN  std_logic;
-         RF_B_sel 	  : IN  std_logic;
-         immExt 		  : IN  std_logic_vector (1 downto 0);
-         Clk 			  : IN  std_logic;
-         Rst 			  : IN  std_logic;
-         Instr         : IN  std_logic_vector(31 downto 0);
-         ALU_out   	  : IN  std_logic_vector(31 downto 0);
-         MEM_out 		  : IN  std_logic_vector(31 downto 0);
-         Immed   		  : OUT  std_logic_vector(31 downto 0);
-         RF_A    		  : OUT  std_logic_vector(31 downto 0);
-         RF_B    		  : OUT  std_logic_vector(31 downto 0)
-        );
-    END COMPONENT;
+   -- Component Declaration for the Unit Under Test (UUT)
+	COMPONENT DECSTAGE
+		Port ( RF_WrEn, RF_WrData_sel, RF_B_sel, Clk, Rst : in  STD_LOGIC;
+			    immExt											  	  : in  std_logic_vector (1 downto 0);
+			    Instr, ALU_out, MEM_out 			  			  : in  STD_LOGIC_VECTOR (31 downto 0);
+             Immed, RF_A, RF_B 								  : out STD_LOGIC_VECTOR (31 downto 0) 
+		);
+	END COMPONENT;
     
 
-   --Inputs
+   -- Inputs
    signal RF_WrEn : std_logic := '0';
    signal RF_WrData_sel : std_logic := '0';
    signal RF_B_sel : std_logic := '0';
@@ -36,7 +27,7 @@ ARCHITECTURE behavior OF DECSTAGE_tb IS
    signal ALU_out : std_logic_vector(31 downto 0) := (others => '0');
    signal MEM_out : std_logic_vector(31 downto 0) := (others => '0');
 
- 	--Outputs
+ 	-- Outputs
    signal Immed : std_logic_vector(31 downto 0);
    signal RF_A : std_logic_vector(31 downto 0);
    signal RF_B : std_logic_vector(31 downto 0);
@@ -49,19 +40,19 @@ ARCHITECTURE behavior OF DECSTAGE_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: DECSTAGE PORT MAP (
-          RF_WrEn => RF_WrEn,
-          RF_WrData_sel => RF_WrData_sel,
-          RF_B_sel => RF_B_sel,
-          immExt => immExt,
-          Clk => Clk,
-          Rst => Rst,
-          Instr => Instr,
-          ALU_out => ALU_out,
-          MEM_out => MEM_out,
-          Immed => Immed,
-          RF_A => RF_A,
-          RF_B => RF_B
+   uut: DECSTAGE 
+		PORT MAP ( RF_WrEn => RF_WrEn,
+					  RF_WrData_sel => RF_WrData_sel,
+					  RF_B_sel => RF_B_sel,
+					  immExt => immExt,
+                 Clk => Clk,
+                 Rst => Rst,
+                 Instr => Instr,
+                 ALU_out => ALU_out,
+                 MEM_out => MEM_out,
+                 Immed => Immed,
+					  RF_A => RF_A,
+                 RF_B => RF_B
         );
 
    -- Clock process definitions

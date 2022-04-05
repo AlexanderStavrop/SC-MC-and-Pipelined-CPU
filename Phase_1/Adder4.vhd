@@ -11,7 +11,7 @@ end Adder4;
 
 architecture Behavioral of Adder4 is
 
--- Main function
+-------------------------------------------------- Main Functions --------------------------------------------------                                                                                        
 begin
 	DataOut <= DataIn + 4 after 10ns;		-- Adding 4 to the input value
 end Behavioral;
