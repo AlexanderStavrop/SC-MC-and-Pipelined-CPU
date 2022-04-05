@@ -1,6 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use work.mux32_pkg.all;
+use work.GenericMux32_pkg.all;
 
 -- Creating the entity of RegisterFile
 entity RF is
