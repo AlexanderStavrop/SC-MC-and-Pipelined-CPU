@@ -8,8 +8,8 @@ ARCHITECTURE behavior OF Adder4_tb IS
  
 	-- Creating the component of Adder4
 	component Adder4
-		port( DataIn : IN  std_logic_vector(31 downto 0);
-				DataOut : OUT  std_logic_vector(31 downto 0)
+		port( DataIn  : IN  std_logic_vector(31 downto 0);
+				DataOut : OUT std_logic_vector(31 downto 0)
       );
     end component;
     

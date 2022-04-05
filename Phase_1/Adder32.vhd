@@ -11,9 +11,9 @@ end Adder32;
 
 architecture Behavioral of Adder32 is
 	
--- Main function
+-------------------------------------------------- Main Functions --------------------------------------------------                                                                                        
 begin
-	 DataOut <= signed(Inp_A) + signed(Inp_B) after 10ns;
+	 DataOut <= signed(Inp_A) + signed(Inp_B) after 10ns;	-- Adding the two 32bit numbers
 end Behavioral;
 
  

@@ -18,6 +18,7 @@ architecture Behavioral of ALU is
 	signal IN_out  		  : std_logic_vector (31 downto 0) := (others => '0');
 	signal IN_cout         : std_logic_vector (32 downto 0) := (others => '0');
 	signal IN_zero, IN_ovf : std_logic;
+	
 -------------------------------------------------- Main Functions --------------------------------------------------                                                                                        
 begin	
 	with Op select 
