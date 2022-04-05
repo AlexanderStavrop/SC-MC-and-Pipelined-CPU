@@ -8,8 +8,7 @@ ARCHITECTURE behavior OF Decoder5to32_tb IS
 
     -- Creating the component of Decoder5to32
     COMPONENT Decoder5to32
-		 PORT(
-				DataIn  : IN  std_logic_vector(4 downto 0);
+		 PORT(DataIn  : IN  std_logic_vector(4 downto 0);
 				DataOut : OUT std_logic_vector(31 downto 0)
 		 );
     END COMPONENT;

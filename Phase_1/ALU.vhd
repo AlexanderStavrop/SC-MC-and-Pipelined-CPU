@@ -6,8 +6,8 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 -- Creating the entity of ALU
 entity ALU is
     Port ( A, B			   : in std_logic_vector  (31 downto 0);
-           Op 			   : in std_logic_vector  (3 downto 0);
-           Dout 	       : out std_logic_vector (31 downto 0);
+           Op 			      : in std_logic_vector  (3 downto 0);
+           Dout 	         : out std_logic_vector (31 downto 0);
            Zero, Cout, Ovf : out std_logic
 	 );
 end ALU;
