@@ -1,67 +1,30 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   17:34:37 04/05/2022
--- Design Name:   
--- Module Name:   C:/Users/Alex/Desktop/Phase_1/Part_2_2/DATAPATH3_tb.vhd
--- Project Name:  Part_2_2
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: DATAPATH
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
  
 ENTITY DATAPATH3_tb IS
 END DATAPATH3_tb;
  
 ARCHITECTURE behavior OF DATAPATH3_tb IS 
  
-	-- Component Declaration for the Unit Under Test (UUT)
-   COMPONENT DATAPATH
-		PORT(
-         Clk : IN  std_logic;
-         Rst : IN  std_logic;
-         PC_sel : IN  std_logic;
-         PC_LdEn : IN  std_logic;
-         PC_out : OUT  std_logic_vector(31 downto 0);
-         RF_WrData_sel : IN  std_logic;
-         RF_B_sel : IN  std_logic;
-         RF_WrEn : IN  std_logic;
-         ImmExt_s : IN  std_logic_vector(1 downto 0);
-         Instruction : IN  std_logic_vector(31 downto 0);
-         ALU_Bin_sel : IN  std_logic;
-         ALU_func : IN  std_logic_vector(3 downto 0);
-         ALU_zero : OUT  std_logic;
-         ALU_cout : OUT  std_logic;
-         ALU_ovf : OUT  std_logic;
-         ByteOp : IN  std_logic;
-         Mem_WrEn : IN  std_logic;
-         MM_RdData : IN  std_logic_vector(31 downto 0);
-         MM_WrEn : OUT  std_logic;
-         MM_Addr : OUT  std_logic_vector(31 downto 0);
-         MM_WrData : OUT  std_logic_vector(31 downto 0)
-        );
+	COMPONENT DATAPATH
+		Port ( Clk, Rst   		 					  : in  std_logic;
+			  -- IFSTAGE INPUTS/OUTPUTS -----------------------------------------
+			  PC_sel, PC_LdEn  		  		     : in  std_logic;
+			  PC_out								     : out std_logic_vector (31 downto 0);
+       	  -- DECSTAGE INPUTS ------------------------------------------------
+			  RF_WrData_sel, RF_B_sel, RF_WrEn : in  std_logic;
+			  ImmExt_s			 					  : in  std_logic_vector ( 1 downto 0);  
+			  Instruction 							  : in  std_logic_vector (31 downto 0);
+			  -- EXSTAGE INPUTS -------------------------------------------------	
+			  ALU_Bin_sel		 					  : in  std_logic;	
+			  ALU_func			 					  : in  std_logic_vector ( 3 downto 0);
+			  ALU_zero, ALU_cout, ALU_ovf		  : out std_logic;
+			  -- MEMSTAGE INPUTS/OUTPUTS ----------------------------------------
+			  ByteOp, Mem_WrEn  					  : in  std_logic;
+			  MM_RdData 		 					  : in  std_logic_vector (31 downto 0);
+			  MM_WrEn			 					  : out std_logic;
+			  MM_Addr, MM_WrData 	  			  : out STD_LOGIC_VECTOR (31 downto 0)			  
+		);
    END COMPONENT;
     
 	component RAM is
@@ -105,28 +68,28 @@ ARCHITECTURE behavior OF DATAPATH3_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: DATAPATH PORT MAP (
-          Clk => Clk,
-          Rst => Rst,
-          PC_sel => PC_sel,
-          PC_LdEn => PC_LdEn,
-          PC_out => PC_out,
-          RF_WrData_sel => RF_WrData_sel,
-          RF_B_sel => RF_B_sel,
-          RF_WrEn => RF_WrEn,
-          ImmExt_s => ImmExt_s,
-          Instruction => Instruction,
-          ALU_Bin_sel => ALU_Bin_sel,
-          ALU_func => ALU_func,
-          ALU_zero => ALU_zero,
-          ALU_cout => ALU_cout,
-          ALU_ovf => ALU_ovf,
-          ByteOp => ByteOp,
-          Mem_WrEn => Mem_WrEn,
-          MM_RdData => MM_RdData,
-          MM_WrEn => MM_WrEn,
-          MM_Addr => MM_Addr,
-          MM_WrData => MM_WrData
+   uut: DATAPATH 
+		PORT MAP ( Clk => Clk,
+					  Rst => Rst,
+					  PC_sel => PC_sel,
+					  PC_LdEn => PC_LdEn,
+					  PC_out => PC_out,
+					  RF_WrData_sel => RF_WrData_sel,
+					  RF_B_sel => RF_B_sel,
+					  RF_WrEn => RF_WrEn,
+					  ImmExt_s => ImmExt_s,
+					  Instruction => Instruction,
+					  ALU_Bin_sel => ALU_Bin_sel,
+					  ALU_func => ALU_func,
+					  ALU_zero => ALU_zero,
+					  ALU_cout => ALU_cout,
+					  ALU_ovf => ALU_ovf,
+					  ByteOp => ByteOp,
+					  Mem_WrEn => Mem_WrEn,
+					  MM_RdData => MM_RdData,
+					  MM_WrEn => MM_WrEn,
+					  MM_Addr => MM_Addr,
+					  MM_WrData => MM_WrData
         );
 
 	RAM_MODULE: RAM

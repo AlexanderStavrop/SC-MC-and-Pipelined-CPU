@@ -7,16 +7,20 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/DATAPATH - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH.vhd</ClosedNode>
+         <ClosedNode>/DATAPATH - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH.vhd/DEC - DECSTAGE - Behavioral</ClosedNode>
+         <ClosedNode>/DATAPATH - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH.vhd/EX1 - EXSTAGE - Behavioral</ClosedNode>
+         <ClosedNode>/DATAPATH - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH.vhd/IF1 - IFSTAGE - Behavioral</ClosedNode>
          <ClosedNode>/RF - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|RF.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>ImmedSelector - Immed16to32 - Behavioral (C:/Users/Alex/Desktop/Organosh_real/Phase_1/Immed16to32.vhd)</SelectedItem>
+         <SelectedItem>DATAPATH - Behavioral (C:/Users/Alex/Desktop/Organosh_real/Phase_1/DATAPATH.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001a9000000020000000000000000000000000200000064ffffffff000000810000000300000002000001a90000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000130000000020000000000000000000000000200000064ffffffff000000810000000300000002000001300000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>ImmedSelector - Immed16to32 - Behavioral (C:/Users/Alex/Desktop/Organosh_real/Phase_1/Immed16to32.vhd)</CurrentItem>
+      <CurrentItem>DATAPATH - Behavioral (C:/Users/Alex/Desktop/Organosh_real/Phase_1/DATAPATH.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -79,10 +83,14 @@
          <ClosedNode>/ALU_tb - bench C:|Users|Alex|Desktop|Organosh_real|Phase_1|ALU_tb.vhd</ClosedNode>
          <ClosedNode>/Adder32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Adder32_tb.vhd</ClosedNode>
          <ClosedNode>/Adder4_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Adder4_tb.vhd</ClosedNode>
+         <ClosedNode>/DATAPATH3_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH3_tb.vhd</ClosedNode>
+         <ClosedNode>/DECSTAGE_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DECSTAGE_tb.vhd</ClosedNode>
          <ClosedNode>/DECSTAGE_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DECSTAGE_tb.vhd/uut - DECSTAGE - Behavioral/RegisterFile - RF - Behavioral</ClosedNode>
          <ClosedNode>/Decoder5to32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Decoder5to32_tb.vhd</ClosedNode>
+         <ClosedNode>/EXSTAGE_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|EXSTAGE_tb.vhd</ClosedNode>
          <ClosedNode>/GenericMux32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|GenericMux32_tb.vhd</ClosedNode>
          <ClosedNode>/IFSTAGE_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|IFSTAGE_tb.vhd</ClosedNode>
+         <ClosedNode>/IFSTAGE_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|IFSTAGE_tb.vhd/uut - IFSTAGE - Behavioral</ClosedNode>
          <ClosedNode>/Immed16to32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Immed16to32_tb.vhd</ClosedNode>
          <ClosedNode>/Mux32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Mux32_tb.vhd</ClosedNode>
          <ClosedNode>/RF_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|RF_tb.vhd</ClosedNode>
@@ -90,13 +98,13 @@
          <ClosedNode>/Register32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Register32_tb.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Unassigned User Library Modules</SelectedItem>
+         <SelectedItem>DATAPATH3_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/DATAPATH3_tb.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001bd000000020000000000000000000000000200000064ffffffff000000810000000300000002000001bd0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000157000000020000000000000000000000000200000064ffffffff000000810000000300000002000001570000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Unassigned User Library Modules</CurrentItem>
+      <CurrentItem>DATAPATH3_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/DATAPATH3_tb.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -126,5 +134,5 @@
       <CurrentItem></CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Behavioral Simulation</CurrentView>
+   <CurrentView>Implementation</CurrentView>
 </Project>

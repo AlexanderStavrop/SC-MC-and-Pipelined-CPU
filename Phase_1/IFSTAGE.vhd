@@ -50,24 +50,38 @@ architecture Behavioral of IFSTAGE is
 	signal PcOut	   : std_logic_vector(31 downto 0);
 	
 begin
-	-- Creating one Adder32
+	---------------------------------------------------------------- Adder32
 	ADDR32:Adder32
-		port map ( Inp_A => Adder4Out, Inp_B => PC_Immed, DataOut => Adder32Out);
+		port map ( Inp_A => Adder4Out,
+					  Inp_B => PC_Immed,
+					  DataOut => Adder32Out
+		);
 		
-	-- Creating one Adder4
+	---------------------------------------------------------------- Adder4
 	ADDR4:Adder4
-		port map ( DataIn => PcOut, DataOut => Adder4Out);	
+		port map ( DataIn => PcOut,
+					  DataOut => Adder4Out
+		);	
 		
 	AdderOut(0) <= Adder4Out;
 	AdderOut(1) <= Adder32Out;
 	
-	-- Creating one Mux2To1
+	---------------------------------------------------------------- Mux32
 	MUX:Mux32
-		port map ( DataIn => AdderOut, DataSel => PC_sel, DataOut => MuxOut);	
+		port map ( DataIn => AdderOut,
+					  DataSel => PC_sel,
+					  DataOut => MuxOut
+		);	
 		
-	-- Creating one Register32
+	---------------------------------------------------------------- Register32
 	REGISTER_PC:Register32
-		port map ( CLK => Clk, RST => Reset, WE => PC_LdEn, DataIn => MuxOut, DataOut => PcOut);	
+		port map ( CLK => Clk,
+					  RST => Reset,
+					  WE => PC_LdEn,
+					  DataIn => MuxOut,
+					  DataOut => PcOut
+		);	
+		
 	PC <= PcOut;
 	
 end Behavioral;

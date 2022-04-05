@@ -59,14 +59,14 @@ begin
 	mux_32_matrix(0) <= ALU_out;
 	mux_32_matrix(1) <= MEM_out;
 	
-	-- Creating one Mux 2 to 1 of 32 bits.
+	---------------------------------------------------------------- Mux32
 	MUX_out:Mux32
 		port map ( DataIn => mux_32_matrix,
 					  DataSel => RF_WrData_sel,
 					  DataOut => mux_32_out 
 		);
       	
-	-- Creating xamali
+	---------------------------------------------------------------- Immed16to32
 	ImmedSelector:Immed16to32
 		port map ( instr_in => Instr(15 downto 0),
 					  instr_sel => immExt,
@@ -77,14 +77,14 @@ begin
 	mux_5_matrix(0) <= Instr(15 downto 11);
 	mux_5_matrix(1) <= Instr(20 downto 16);
 	
-	-- Creating one Mux 2 to 1 of 5 bits.
+	---------------------------------------------------------------- Mux5
 	MUX_in:Mux5
 		port map ( DataIn => mux_5_matrix,
 					  DataSel => RF_B_sel,
 					  DataOut => mux_5_out 
 		);
       	  	
-	-- Creating one RegisterFile.
+	---------------------------------------------------------------- Mux5
 	RegisterFile:RF
 		port map ( Ard1  => Instr(25 downto 21),
 					  Ard2  => mux_5_out, 
