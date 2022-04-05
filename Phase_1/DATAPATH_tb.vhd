@@ -36,7 +36,7 @@ ARCHITECTURE behavior OF DATAPATH_tb IS
 		);
 	end component; 
 	
-   --Inputs
+   -- Inputs
    signal Clk : std_logic := '0';
    signal Rst : std_logic := '0';
    signal PC_sel : std_logic := '0';
@@ -52,7 +52,7 @@ ARCHITECTURE behavior OF DATAPATH_tb IS
    signal Mem_WrEn : std_logic := '0';
    signal MM_RdData : std_logic_vector(31 downto 0) := (others => '0');
 
- 	--Outputs
+ 	-- Outputs
    signal PC_out : std_logic_vector(31 downto 0);
    signal ALU_zero : std_logic;
    signal ALU_cout : std_logic;

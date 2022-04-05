@@ -71,41 +71,48 @@ BEGIN
    stim_proc: process
    begin
 ---------------------------------------------------------------------------------------------------------------------
+	-- Testing if writing to register works as intented
+		---------------------------------------------------------------------------------------------------------------
 		Rst <= '0'; 												-- Irrelevant 	 			
 		RF_WrEn <= '1';											-- Write enable will be on for following tests.
 		--------------------------------------------------------------------------------------------------------------- 0ns
-		Instr <= "00000000111001111111110000000000";	   -- Setting 31-26->0s, 25-21->7, 20-16->7, 15-11->63, 10-0->0.
-					 
-		MEM_out <= "00000000000000000000000000000100";  -- Setting MEM_out equal to 4.
-		ALU_out <= "00000000000000000000000000000101";  -- Setting ALU_out equal to 5.
-		RF_WrData_sel <= '0';								   -- Choosing MEM_out for DataIn.	
-		immExt <= "00";											-- Choosing sign extend to 32 bits.  	
-		wait for Clk_period;										-- Expecting RF_A equal to 4 and RF_A equal to 0.
+		Instr <= "00000000111001111111110000000000";	   -- Setting 31-26->0s, 25-21->7, 20-16->7, 15-11->63, 10-0->0	 
+		MEM_out <= "00000000000000000000000000000100";  -- Setting MEM_out equal to 4
+		ALU_out <= "00000000000000000000000000000101";  -- Setting ALU_out equal to 5
+		RF_WrData_sel <= '1';								   -- Choosing MEM_out for DataIn
+		immExt <= "00";											-- Choosing sign extend to 32 bits
+		wait for Clk_period;										-- Expecting RF_A equal to 4 and RF_A equal to 0
 	   --------------------------------------------------------------------------------------------------------------- 100ns
 		Instr(31 downto 26) <= "000000";						-- 0 irrelevant.
-		Instr(25 downto 21) <= "00111";						-- Reading from register 7.
-		Instr(20 downto 16) <= "01000";						-- Writing on register 8.
+		Instr(25 downto 21) <= "00111";						-- Reading from register 7
+		Instr(20 downto 16) <= "01000";						-- Writing on register 8
 		Instr(15 downto 0)  <= "0100011111111111";	   -- Reading from register 8
-		MEM_out <= "00000000000000000000000000000100";  -- Setting MEM_out equal to 6.
-		ALU_out <= "00000000000000000000000000000111";  -- Setting ALU_out equal to 7.
-		RF_WrData_sel <= '1';								   -- Choosing ALU_out for DataIn.	
-		RF_B_sel <= '0';											-- Choosing the first input on the mux.
-		immExt <= "01";											-- Choosing sign extend to 32 bits.  	
-		wait for Clk_period;										-- Expecting RF_A equal to 4 and RF_A equal to 7.
+		MEM_out <= "00000000000000000000000000000100";  -- Setting MEM_out equal to 6
+		ALU_out <= "00000000000000000000000000000111";  -- Setting ALU_out equal to 7
+		RF_WrData_sel <= '0';								   -- Choosing ALU_out for DataIn
+		RF_B_sel <= '0';											-- Choosing the first input on the mux
+		immExt <= "01";											-- Choosing sign extend to 32 bits
+		wait for Clk_period;										-- Expecting RF_A equal to 4 and RF_A equal to 7
 		--------------------------------------------------------------------------------------------------------------- 200ns
-		RF_WrEn <= '0';											-- Write enable will be off for following tests.
+		RF_WrEn <= '0';											-- Write enable will be off for following tests
+		--------------------------------------------------------------------------------------------------------------- 200ns
 		Instr(31 downto 26) <= "000000";						-- 0 irrelevant.
 		Instr(25 downto 21) <= "01000";						-- Reading from register 8.
 		Instr(20 downto 16) <= "00111";						-- Writing on register 7.
 		Instr(15 downto 0)  <= "0011111111111111";	   -- Reading from register 7
 		MEM_out <= "00000000000000000000000000001001";  -- Setting MEM_out equal to 9.
 		ALU_out <= "00000000000000000000000000001001";  -- Setting ALU_out equal to 9.
-		RF_WrData_sel <= '1';								   -- Choosing ALU_out for DataIn.
+		RF_WrData_sel <= '0';								   -- Choosing ALU_out for DataIn.
 		RF_B_sel <= '1';											-- Choosing the first input on the mux.
 		immExt <= "10";											-- Choosing  	
-		wait for Clk_period;										-- Expecting RF_A equal to 7 and RF_A equal to 4.
+		wait for Clk_period;										-- Expecting RF_A equal to 7 and RF_B equal to 4.
 		--------------------------------------------------------------------------------------------------------------- 300ns
-		Rst <= '1';
+
+---------------------------------------------------------------------------------------------------------------------
+	-- Testing if Rst works as intented
+		--------------------------------------------------------------------------------------------------------------- 300ns
+		Rst <= '0'; 												-- Setting Rst on
+		--------------------------------------------------------------------------------------------------------------- 300ns
 		RF_WrEn <= '1';											-- Write enable will be off for following tests.
 		Instr(31 downto 26) <= "000000";						-- 0 irrelevant.
 		Instr(25 downto 21) <= "01000";						-- Reading from register 8.
@@ -113,7 +120,7 @@ BEGIN
 		Instr(15 downto 0)  <= "0011111111111111";	   -- Reading from register 7
 		MEM_out <= "00000000000000000000000000001001";  -- Setting MEM_out equal to 9.
 		ALU_out <= "00000000000000000000000000001001";  -- Setting ALU_out equal to 9.
-		RF_WrData_sel <= '1';								   -- Choosing ALU_out for DataIn.
+		RF_WrData_sel <= '0';								   -- Choosing ALU_out for DataIn.
 		RF_B_sel <= '1';											-- Choosing the first input on the mux.
 		immExt <= "11";											-- Choosing  	
 		wait for Clk_period;										-- Expecting RF_A equal to 7 and RF_A equal to 4.
