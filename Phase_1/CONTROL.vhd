@@ -24,7 +24,7 @@ architecture Behavioral of CONTROL is
 
 ------------------------------------------------------ Main Functions ------------------------------------------------------------------                                                                                    
 begin
-	Opcode <= Instruction(5 downto 0);
+	Opcode <= Instruction(31 downto 26);
 	
 	---------------------------------------------------- +4/PC_Immed --------------------------------------------------------------------
 	with Opcode select 
@@ -84,7 +84,7 @@ begin
 									 
 	---------------------------------------------------- ALU_func ------------------------------------------------------------------------
 	with Opcode select
-		ALU_func <= Instruction(31 downto 28) when "100000",		-- Choosing the func part of instruction as the alu function code
+		ALU_func <= Instruction(3 downto 0) when "100000",		   -- Choosing the func part of instruction as the alu function code
 						"0000"						  when "110000",		-- Choosing Addition as the alu function because we perform 'andi'
 						"0101"						  when "110010",		-- Choosing NAND as the alu function because we perform 'nandi'
 						"0011"						  when "110011",		-- Choosing OR as the alu function because we perform 'ori'
@@ -103,7 +103,5 @@ begin
 		Mem_WrEn <= '1' when "000111",									-- Setting Memory write enable on because we perform 'sb'
 					   '1' when "011111",									-- Setting Memory write enable on because we perform 'sw'
 					   '0' when others;										-- Every other case we set memory write enable off
-
-
 
 end Behavioral;
