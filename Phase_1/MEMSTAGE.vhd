@@ -27,13 +27,6 @@ begin
 									  MM_RdData (23 downto 16) when "10",
 									  MM_RdData (31 downto 24) when "11",
 								     "00000000"					when others;
-	
-	with index_bytes select 
-		selected_bytes_store <= MEM_DataIn (7 downto 0)   when "00",
-									   MEM_DataIn (15 downto 8)  when "01",
-									   MEM_DataIn (23 downto 16) when "10",
-									   MEM_DataIn (31 downto 24) when "11",
-									   "00000000"					  when others;
 	 
 	instaction_addr <= "00" & ALU_MEM_Addr(31 downto 2);									  			  -- Ignoring the 2 lsbs
 	MM_Addr 		 	 <= unsigned(instaction_addr) + 1024;									  			  -- Adding the required offset
@@ -45,6 +38,6 @@ begin
 	
 	with ByteOp
 		select MM_WrData <= MEM_DataIn   										   		when '0',     -- Store Word
-					 			  "000000000000000000000000" & selected_bytes_store   when '1',	  -- Store Byte
+					 			  "000000000000000000000000" & MEM_DataIn(7 downto 0) when '1',	  -- Store Byte
 								  x"00000000"											   		when others;  -- Other cases							 
 end Behavioral;

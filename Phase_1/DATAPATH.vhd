@@ -3,18 +3,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity DATAPATH is
 	 Port ( Clk, Rst   		 					  : in  std_logic;
-			  -- IFSTAGE INPUTS/OUTPUTS -----------------------------------------
+			  -- IFSTAGE INPUTS/OUTPUTS ---------------------------------------------
 			  PC_sel, PC_LdEn  		  		     : in  std_logic;
 			  PC_out								     : out std_logic_vector (31 downto 0);
-       	  -- DECSTAGE INPUTS ------------------------------------------------
+       	  -- DECSTAGE INPUTS ----------------------------------------------------
 			  RF_WrData_sel, RF_B_sel, RF_WrEn : in  std_logic;
 			  ImmExt_s			 					  : in  std_logic_vector ( 1 downto 0);  
 			  Instruction 							  : in  std_logic_vector (31 downto 0);
-			  -- EXSTAGE INPUTS -------------------------------------------------	
+			  -- EXSTAGE INPUTS -----------------------------------------------------	
 			  ALU_Bin_sel		 					  : in  std_logic;	
 			  ALU_func			 					  : in  std_logic_vector ( 3 downto 0);
 			  ALU_zero, ALU_cout, ALU_ovf		  : out std_logic;
-			  -- MEMSTAGE INPUTS/OUTPUTS ----------------------------------------
+			  -- MEMSTAGE INPUTS/OUTPUTS --------------------------------------------
 			  ByteOp, Mem_WrEn  					  : in  std_logic;
 			  MM_RdData 		 					  : in  std_logic_vector (31 downto 0);
 			  MM_WrEn			 					  : out std_logic;
