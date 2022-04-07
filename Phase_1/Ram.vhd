@@ -36,7 +36,7 @@ architecture syn of RAM is
 	end function; 
 	 
 	--Creating the needed signal  
-	signal RAM: ram_type := InitRamFromFile("rom3.data");
+	signal RAM: ram_type := InitRamFromFile("rom5.data");
 	
 	begin
 		process (clk)

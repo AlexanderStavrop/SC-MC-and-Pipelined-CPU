@@ -8,8 +8,8 @@ ARCHITECTURE behavior OF CONTROL_tb IS
  
 	-- Component Declaration for the Unit Under Test (UUT)
    COMPONENT CONTROL
-		Port ( ALU_zero 								  : in 	std_logic;
-			    Instruction							  : in   std_logic_vector(31 downto 0);
+		Port ( PC_LdEnbl, ALU_zero 				  : in 	std_logic;			    
+				 Instruction							  : in   std_logic_vector(31 downto 0);
 				 -- IFSTAGE INPUTS/OUTPUTS ---------------------------------------------
 				 PC_sel, PC_LdEn  		  		     : out  std_logic;
 				 -- DECSTAGE INPUTS ----------------------------------------------------
@@ -25,6 +25,7 @@ ARCHITECTURE behavior OF CONTROL_tb IS
     
 
    --Inputs
+	signal PC_LdEnbl: std_logic := '0';	
    signal ALU_zero : std_logic := '0';
    signal Instruction : std_logic_vector(31 downto 0) := (others => '0');
 
@@ -44,24 +45,27 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: CONTROL 
-		PORT MAP ( ALU_zero => ALU_zero,
-					  Instruction => Instruction,
-					  PC_sel => PC_sel,
-					  PC_LdEn => PC_LdEn,
+		PORT MAP ( PC_LdEnbl   	 => PC_LdEnbl,
+					  ALU_zero 	  	 => ALU_zero,
+					  Instruction   => Instruction,
+					  PC_sel      	 => PC_sel,
+					  PC_LdEn       => PC_LdEn,
 					  RF_WrData_sel => RF_WrData_sel,
-					  RF_B_sel => RF_B_sel,
-					  RF_WrEn => RF_WrEn,
-					  ImmExt_s => ImmExt_s,
-					  ALU_Bin_sel => ALU_Bin_sel,
-					  ALU_func => ALU_func,
-					  ByteOp => ByteOp,
-					  Mem_WrEn => Mem_WrEn
+					  RF_B_sel 	 	 => RF_B_sel,
+					  RF_WrEn 		 => RF_WrEn,
+					  ImmExt_s 		 => ImmExt_s,
+					  ALU_Bin_sel 	 => ALU_Bin_sel,
+					  ALU_func 		 => ALU_func,
+					  ByteOp 		 => ByteOp,
+					  Mem_WrEn 	    => Mem_WrEn
 		);
  
 
    -- Stimulus process
    stim_proc: process
    begin		
+------------------------------------------------------------------------------------------------
+	PC_LdEnbl <= '1'; 								-- PC_LdEnbl will be on for the following tests
 ------------------------------------------------------------------------------------------------
 	-- Testing opcodes and funcs codes
 		------------------------------------------------------------------------------------------ 0ns
@@ -220,7 +224,7 @@ BEGIN
 		------------------------------------------------------------------------------------------ 1800ns
 		-- For the following tests we expect the outputs equal to
 		-- PC_sel        -> ALU_zero																-- IFstage
-		-- RF_WrData_sel -> 0    RF_B_sel -> 1    RF_WrEn -> 0    ImmExt_s -> 11	-- DECstage
+		-- RF_WrData_sel -> 0    RF_B_sel -> 0    RF_WrEn -> 0    ImmExt_s -> 11	-- DECstage
 		-- ALU_Bin_sel   -> 0    ALU_func -> 0001 											-- EXstage
 		-- ByteOp  		  -> 0    Mem_WrEn -> 0													-- MEMstage
 		------------------------------------------------------------------------------------------ 1800ns

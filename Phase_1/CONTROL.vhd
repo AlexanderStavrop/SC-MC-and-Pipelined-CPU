@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity CONTROL is
-	Port ( ALU_zero 								  : in 	std_logic;
+	Port ( PC_LdEnbl, ALU_zero 				  : in 	std_logic;
 			 Instruction							  : in   std_logic_vector(31 downto 0);
 			 -- IFSTAGE INPUTS/OUTPUTS ---------------------------------------------
 			 PC_sel, PC_LdEn  		  		     : out  std_logic;
@@ -34,7 +34,7 @@ begin
 					 '0' 				when others;							-- Every other case we increment the PC by 4
 					 
 	----------------------------------------------------- PC_LdEn ------------------------------------------------------------------------
- 	PC_LdEn <= '1';															-- PC load is always on
+ 	PC_LdEn <= PC_LdEnbl;													-- Setting PC load enable equal to PC_LbEnbl input
 		
 	---------------------------------------------------- ALU/MEM out ----------------------------------------------------------------------
 	with Opcode select
@@ -45,8 +45,8 @@ begin
 	------------------------------------------------------ Rd/Rt --------------------------------------------------------------------------
 	with Opcode select
 		RF_B_sel <= '0' when "100000",									-- Choosing Rd as the RF_B (ALU functions)
-					   '0' when "000000",									-- Choosing Rd as the RF_B because we perform 'beq' branch
-					   '0' when "000001",									-- Choosing Rd as the RF_B because we perform 'bne' branch
+			--		   '1' when "000000",									-- Choosing Rd as the RF_B because we perform 'beq' branch
+				--	   '0' when "000001",									-- Choosing Rd as the RF_B because we perform 'bne' branch
 					   '1' when others;										-- Every other case we choose Rt as the RF_B
 
 	----------------------------------------------------- RF_WrEn ------------------------------------------------------------------------
