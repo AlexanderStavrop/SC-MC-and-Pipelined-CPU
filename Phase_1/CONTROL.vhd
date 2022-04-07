@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity CONTROL is
 	Port ( ALU_zero 								  : in 	std_logic;
-			 Instruction							  : in   std_logic_vector(5 downto 0);
+			 Instruction							  : in   std_logic_vector(31 downto 0);
 			 -- IFSTAGE INPUTS/OUTPUTS ---------------------------------------------
 			 PC_sel, PC_LdEn  		  		     : out  std_logic;
        	 -- DECSTAGE INPUTS ----------------------------------------------------
@@ -85,12 +85,12 @@ begin
 	---------------------------------------------------- ALU_func ------------------------------------------------------------------------
 	with Opcode select
 		ALU_func <= Instruction(3 downto 0) when "100000",		   -- Choosing the func part of instruction as the alu function code
-						"0000"						  when "110000",		-- Choosing Addition as the alu function because we perform 'andi'
-						"0101"						  when "110010",		-- Choosing NAND as the alu function because we perform 'nandi'
-						"0011"						  when "110011",		-- Choosing OR as the alu function because we perform 'ori'
-						"0001"						  when "000000",		-- Choosing Subtract as the alu function because we perform 'beq'
-						"0001"						  when "000001",		-- Choosing Subtract as the alu function because we perform 'bne'
-						"0000"						  when others;			-- Every other case we choose Addition as the alu function 
+						"0000"						when "110000",			-- Choosing Addition as the alu function because we perform 'andi'
+						"0101"						when "110010",			-- Choosing NAND as the alu function because we perform 'nandi'
+						"0011"						when "110011",			-- Choosing OR as the alu function because we perform 'ori'
+						"0001"						when "000000",			-- Choosing Subtract as the alu function because we perform 'beq'
+						"0001"						when "000001",			-- Choosing Subtract as the alu function because we perform 'bne'
+						"0000"						when others;			-- Every other case we choose Addition as the alu function 
 
 	----------------------------------------------------- ByteOp -------------------------------------------------------------------------		    
 	with Opcode select
