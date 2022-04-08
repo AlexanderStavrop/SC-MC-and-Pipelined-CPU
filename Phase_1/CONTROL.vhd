@@ -45,8 +45,6 @@ begin
 	------------------------------------------------------ Rd/Rt --------------------------------------------------------------------------
 	with Opcode select
 		RF_B_sel <= '0' when "100000",									-- Choosing Rd as the RF_B (ALU functions)
-			--		   '1' when "000000",									-- Choosing Rd as the RF_B because we perform 'beq' branch
-				--	   '0' when "000001",									-- Choosing Rd as the RF_B because we perform 'bne' branch
 					   '1' when others;										-- Every other case we choose Rt as the RF_B
 
 	----------------------------------------------------- RF_WrEn ------------------------------------------------------------------------
