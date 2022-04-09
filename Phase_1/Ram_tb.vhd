@@ -60,6 +60,8 @@ BEGIN
    stim_proc: process
    begin
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+--	THE COMMENTS ON THIS TESTBENCH WE WRITEN ACCORDING TO THE FILE rom.data !!!
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 	-- Testing if the initialization was sucessful and the instruction address is passed correctly to the data_dout.
 		--------------------------------------------------------------------------------------------------------------------------------------------------------- 0ns
 		data_we   <= '0';											 	-- Write enable will be off for the following tests.

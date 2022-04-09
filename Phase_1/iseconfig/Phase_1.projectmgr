@@ -17,20 +17,18 @@
          <ClosedNode>/DATAPATH_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH_tb.vhd</ClosedNode>
          <ClosedNode>/DATAPATH_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH_tb.vhd/uut - DATAPATH - Behavioral/DEC_module - DECSTAGE - Behavioral</ClosedNode>
          <ClosedNode>/DATAPATH_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH_tb.vhd/uut - DATAPATH - Behavioral/IF_module - IFSTAGE - Behavioral</ClosedNode>
-         <ClosedNode>/PROC_SC - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|PROC_SC.vhd</ClosedNode>
          <ClosedNode>/PROC_SC - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|PROC_SC.vhd/Datapath_module - DATAPATH - Behavioral/DEC_module - DECSTAGE - Behavioral</ClosedNode>
-         <ClosedNode>/PROC_SC - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|PROC_SC.vhd/Datapath_module - DATAPATH - Behavioral/EX_module - EXSTAGE - Behavioral</ClosedNode>
          <ClosedNode>/PROC_SC - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|PROC_SC.vhd/Datapath_module - DATAPATH - Behavioral/IF_module - IFSTAGE - Behavioral</ClosedNode>
          <ClosedNode>/RF - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|RF.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>PROC_SC - Behavioral (C:/Users/Alex/Desktop/Organosh_real/Phase_1/PROC_SC.vhd)</SelectedItem>
+         <SelectedItem>ALU_module - ALU - Behavioral (C:/Users/Alex/Desktop/Organosh_real/Phase_1/ALU.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000011c000000020000000000000000000000000200000064ffffffff0000008100000003000000020000011c0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001a1000000020000000000000000000000000200000064ffffffff000000810000000300000002000001a10000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>PROC_SC - Behavioral (C:/Users/Alex/Desktop/Organosh_real/Phase_1/PROC_SC.vhd)</CurrentItem>
+      <CurrentItem>ALU_module - ALU - Behavioral (C:/Users/Alex/Desktop/Organosh_real/Phase_1/ALU.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -53,7 +51,7 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000004d2000000040101000100000000000000000000000064ffffffff000000810000000000000004000000420000000100000000000000240000000100000000000000660000000100000000000004060000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000004e3000000040101000100000000000000000000000064ffffffff000000810000000000000004000000420000000100000000000000240000000100000000000000660000000100000000000004170000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>ALU.vhd</CurrentItem>
    </ItemView>
@@ -91,11 +89,10 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/ALU_tb - bench C:|Users|Alex|Desktop|Organosh_real|Phase_1|ALU_tb.vhd</ClosedNode>
-         <ClosedNode>/Adder32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Adder32_tb.vhd</ClosedNode>
          <ClosedNode>/Adder4_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Adder4_tb.vhd</ClosedNode>
+         <ClosedNode>/CONTROL_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|CONTROL_tb.vhd</ClosedNode>
          <ClosedNode>/DATAPATH3_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH3_tb.vhd/uut - DATAPATH - Behavioral</ClosedNode>
          <ClosedNode>/DATAPATH_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH_tb.vhd</ClosedNode>
-         <ClosedNode>/DATAPATH_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH_tb.vhd/uut - DATAPATH - Behavioral</ClosedNode>
          <ClosedNode>/DATAPATH_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH_tb.vhd/uut - DATAPATH - Behavioral/DEC - DECSTAGE - Behavioral</ClosedNode>
          <ClosedNode>/DATAPATH_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH_tb.vhd/uut - DATAPATH - Behavioral/DEC_module - DECSTAGE - Behavioral</ClosedNode>
          <ClosedNode>/DATAPATH_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|DATAPATH_tb.vhd/uut - DATAPATH - Behavioral/EX1 - EXSTAGE - Behavioral</ClosedNode>
@@ -108,24 +105,26 @@
          <ClosedNode>/EXSTAGE_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|EXSTAGE_tb.vhd/uut - EXSTAGE - Behavioral</ClosedNode>
          <ClosedNode>/GenericMux32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|GenericMux32_tb.vhd</ClosedNode>
          <ClosedNode>/IFSTAGE_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|IFSTAGE_tb.vhd</ClosedNode>
-         <ClosedNode>/IFSTAGE_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|IFSTAGE_tb.vhd/uut - IFSTAGE - Behavioral</ClosedNode>
          <ClosedNode>/Immed16to32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Immed16to32_tb.vhd</ClosedNode>
-         <ClosedNode>/Mux32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Mux32_tb.vhd</ClosedNode>
          <ClosedNode>/PROC_SC - Behavioral C:|Users|Alex|Desktop|Organosh_real|Phase_1|PROC_SC.vhd</ClosedNode>
          <ClosedNode>/PROS_SC_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|PROS_SC_tb.vhd</ClosedNode>
+         <ClosedNode>/PROS_SC_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|PROS_SC_tb.vhd/uut - PROC_SC - Behavioral/Datapath_module - DATAPATH - Behavioral</ClosedNode>
          <ClosedNode>/RF_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|RF_tb.vhd</ClosedNode>
-         <ClosedNode>/RF_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|RF_tb.vhd/uut - RF - Behavioral</ClosedNode>
          <ClosedNode>/Ram_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Ram_tb.vhd</ClosedNode>
          <ClosedNode>/Register32_tb - behavior C:|Users|Alex|Desktop|Organosh_real|Phase_1|Register32_tb.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>PROS_SC_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/PROS_SC_tb.vhd)</SelectedItem>
+         <SelectedItem>DATAPATH_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/DATAPATH_tb.vhd)</SelectedItem>
+         <SelectedItem>DECSTAGE_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/DECSTAGE_tb.vhd)</SelectedItem>
+         <SelectedItem>EXSTAGE_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/EXSTAGE_tb.vhd)</SelectedItem>
+         <SelectedItem>IFSTAGE_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/IFSTAGE_tb.vhd)</SelectedItem>
+         <SelectedItem>Ram_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/Ram_tb.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000157000000020000000000000000000000000200000064ffffffff000000810000000300000002000001570000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000151000000020000000000000000000000000200000064ffffffff000000810000000300000002000001510000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>PROS_SC_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/PROS_SC_tb.vhd)</CurrentItem>
+      <CurrentItem>Ram_tb - behavior (C:/Users/Alex/Desktop/Organosh_real/Phase_1/Ram_tb.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -133,13 +132,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000123000000010000000100000000000000000000000064ffffffff000000810000000000000001000001230000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>

@@ -29,33 +29,33 @@ BEGIN
 	-- Stimulus process
 	stim_proc: process
 	begin
------------------------------------------------------------------
+-----------------------------------------------------------------------
 	-- Testing some values of the decoder
-		----------------------------------------------------------- 0ns	
+		----------------------------------------------------------------- 0ns	
 		DataIn <= "00000";	-- Setting the DataIn equal to 0
-		wait for 100 ns;		-- Expect DataOut equal to 1
-		----------------------------------------------------------- 100ns	
+		wait for 100 ns;		-- Expect 1 at index 0 (uint = 1)
+		----------------------------------------------------------------- 100ns	
 		DataIn <= "00001";	-- Setting the DataIn equal to 1
-		wait for 100 ns;		-- Expect DataOut equal to 2
-		----------------------------------------------------------- 200ns
+		wait for 100 ns;		-- Expect 1 at index 1 (uint = 2)
+		----------------------------------------------------------------- 200ns
 		DataIn <= "00010";	-- Setting the DataIn equal to 2
-		wait for 100 ns;		-- Expect DataOut equal to 4
-		----------------------------------------------------------- 300ns
+		wait for 100 ns;		-- Expect 1 at index 2 (uint = 4)
+		----------------------------------------------------------------- 300ns
 		DataIn <= "00011";	-- Setting the DataIn equal to 3
-		wait for 100 ns;		-- Expect DataOut equal to 8
-		----------------------------------------------------------- 400ns
+		wait for 100 ns;		-- Expect 1 at index 3 (uint = 8)
+		----------------------------------------------------------------- 400ns
 		DataIn <= "00100";	-- Setting the DataIn equal to 4
-		wait for 100 ns;		-- Expect DataOut equal to 16
-		----------------------------------------------------------- 500ns
+		wait for 100 ns;		-- Expect 1 at index 4 (uint = 16)
+		----------------------------------------------------------------- 500ns
 		DataIn <= "00101";	-- Setting the DataIn equal to 5
-		wait for 100 ns;		-- Expect DataOut equal to 32
-		----------------------------------------------------------- 600ns
+		wait for 100 ns;		-- Expect 1 at index 5 (uint = 32)
+		----------------------------------------------------------------- 600ns
 		DataIn <= "01011";	-- Setting the DataIn equal to 11
-		wait for 100 ns;		-- Expect DataOut equal to 2048
-		----------------------------------------------------------- 700ns
+		wait for 100 ns;		-- Expect 1 at index 11 (uint = 2048)
+		----------------------------------------------------------------- 700ns
 		DataIn <= "11111";	-- Setting the DataIn equal to 31
-		wait for 100 ns;		-- Expect DataOut equal to 2147483648
-		----------------------------------------------------------- 800ns
+		wait for 100 ns;		-- Expect 1 at index 32 (uint = 2147483648)
+		----------------------------------------------------------------- 800ns
 		wait;
 	end process;
 END;

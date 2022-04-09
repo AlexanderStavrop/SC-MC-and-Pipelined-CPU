@@ -45,13 +45,15 @@ architecture Behavioral of RF is
 
 -- Port mapping
 begin
-	-- Creating one decoder 5 to 32
+	----------------------------------------------------------------- Decoder5to32
+	-- Creating 1 Decoder
 	Dec:Decoder5to32
 		port map ( DataIn  => Awr,
 					  DataOut => decOut
       );
 		
-	-- Generating 32 Registers
+	----------------------------------------------------------------- Register32
+	-- Creating 32 Registers
 	Gen_Reg : for i in 0 to 31 generate 
 		-- Creating the and output
 		andOut(i) <= (decOut(i) and WrEn) after 2ns; 
@@ -78,24 +80,20 @@ begin
 				);
 		end generate Rx;
 	end generate Gen_Reg;
-	--regOut(0) <= R0Data;
 	
-	-- Generating 2 generic multiplexers
-	Gen_Mux: for i in 0 to 1 generate
-		UpperMux: if i=0 generate
-			Mux1: GenericMux32 
-				port map ( DataIn  => regOut,
-							  DataSel => Ard1,
-							  DataOut => Dout1
-				);
-		end generate UpperMux;
-		LowerMux: if i>0 generate
-			Mux2: GenericMux32 
-				port map ( DataIn  => regOut,
-							  DataSel => Ard2,
-							  DataOut => Dout2
-				);
-		end generate LowerMux;
-	end generate Gen_Mux;
+	----------------------------------------------------------------- GenericMux
+	-- Generating the upper Mux
+	Mux1: GenericMux32 
+		port map ( DataIn  => regOut,
+					  DataSel => Ard1,
+					  DataOut => Dout1
+		);
+	
+	-- Generating the lower Mux
+	Mux2: GenericMux32 
+		port map ( DataIn  => regOut,
+					  DataSel => Ard2,
+					  DataOut => Dout2
+		);			
 end Behavioral;
 

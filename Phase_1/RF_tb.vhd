@@ -56,29 +56,18 @@ BEGIN
    stim_proc: process
    begin
 ------------------------------------------------------------------------------------------------------------------------------
-	-- Setup
+	-- Holding reset for 100ns
 		------------------------------------------------------------------------------------------------------------------------ 0ns
-		wait for Clk_period;									-- Waiting for everything to setup correctly.
-		------------------------------------------------------------------------------------------------------------------------ 100ns	
-		
-------------------------------------------------------------------------------------------------------------------------------
-	-- Checking If R0 has all zeros and the other registers are empty.
-		------------------------------------------------------------------------------------------------------------------------ 100ns 
-		WrEn <= '0';											-- WriteEnable will be off for the following tests
-		Din <= "11111111111111111111111111111111";	-- Data will be equal to 1s for the following tests
-		Awr <= "11111";										-- Decoder input will be set to 32 for the following tests, 
-																	--   but is irrelevant because write enable is off
-		------------------------------------------------------------------------------------------------------------------------ 100ns	
-		Ard1 <= "00000";										-- Mux1: Choosing the R0 register
-		Ard2 <= "00101";										-- Mux2: Choosing the R5 register
-      wait for Clk_period;									-- Expecting Dout1 equal to all 0s and Dout2 equal to 0s
-		------------------------------------------------------------------------------------------------------------------------ 200ns
+		Rst <= '1';												-- Setting reset on
+		wait for Clk_period*2;								-- Waiting for everything to setup correctly
+		Rst <= '0';												-- Setting reset off
+		------------------------------------------------------------------------------------------------------------------------ 200ns	
 		
 ------------------------------------------------------------------------------------------------------------------------------
 	-- Checking If Writing to registers works as expected.
 		------------------------------------------------------------------------------------------------------------------------ 200ns	
 		WrEn <= '1';											-- WriteEnable will be on for the following tests
-		Din <= "11111111111111111111111111111111";	-- Data will be equal to 1s for the following tests
+		Din <= "11111111111111111111111111111111";	-- DataIn will be equal to -1 for the following tests
 		------------------------------------------------------------------------------------------------------------------------ 200ns
 		Ard1 <= "00001";										-- Mux1: Choosing the R1 register
 		Ard2 <= "00101";										-- Mux2: Choosing the R5 register
@@ -101,7 +90,7 @@ BEGIN
 		Ard1 <= "00000";										-- Mux1: Choosing the R0 register
 		Ard2 <= "00110";										-- Mux2: Choosing the R6 register
 		Awr <= "00000";										-- Choosing to write on the R0 register
-		Din <= "10101010101010101010101010101010";	-- Data will be equal to -1431655766
+		Din <= "10101010101010101010101010101010";	-- Setting DataIn will be equal to -1431655766
       wait for Clk_period;									-- Expecting Dout1 and Dout2 equal to all 0s
 		------------------------------------------------------------------------------------------------------------------------ 600ns
 	-- Checking If the data was write correctly in R1 and R5.
@@ -124,15 +113,15 @@ BEGIN
 		------------------------------------------------------------------------------------------------------------------------ 738ns
 		Ard1 <= "00110";										-- Mux1: Choosing the R6 register
 		Awr  <= "00110";										-- Choosing to write on the R6 register
-		Din  <= "00001010110111101110101011100110";	-- Data will be equal to 182381286
+		Din  <= "00001010110111101110101011100110";	-- Setting DataIn will be equal to 182381286
       wait for 62ns;											-- Expecting Dout1 equal to 182381286 and Dout2 equal to 0
 		------------------------------------------------------------------------------------------------------------------------ 800ns
 		wait for 40ns;											-- Waiting for Clk_period/2 - 10ns (accounting only for the decoder delay)
 		------------------------------------------------------------------------------------------------------------------------ 840ns
 		Ard2 <= "00111";										-- Mux2: Choosing the R7 register
 		Awr  <= "00111";										-- Choosing to write on the R7 register
-		Din  <= "11111111111111111111111111111111";	-- Inserting data to the corresponding register
-      wait for 60ns;											-- Expecting Dout1 equal to 182381286 and Dout2 equal to 0 due to delays
+		Din  <= "11111111111111111111111111111111";	-- Setting DataIn equal to -1
+      wait for 60ns;											-- Expecting Dout1 equal to -1 and Dout2 equal to 0 due to delays
 		------------------------------------------------------------------------------------------------------------------------ 900ns
 		wait for Clk_period;									-- Waiting for another clock period to show the result
 		------------------------------------------------------------------------------------------------------------------------ 1000ns

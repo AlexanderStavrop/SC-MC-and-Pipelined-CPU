@@ -43,44 +43,44 @@ architecture Behavioral of IFSTAGE is
 	end component;
 	
 	-- Needed signals
-	signal Adder32Out : std_logic_vector(31 downto 0);
-	signal Adder4Out  : std_logic_vector(31 downto 0);
+	signal Adder32Out : std_logic_vector(31 downto 0) := (others => '0');
+	signal Adder4Out  : std_logic_vector(31 downto 0) := (others => '0');
 	signal AdderOut   : MuxMatrix32 := (others => (others => '0'));
-	signal MuxOut     : std_logic_vector(31 downto 0);
-	signal PcOut	   : std_logic_vector(31 downto 0);
+	signal MuxOut     : std_logic_vector(31 downto 0) := (others => '0');
+	signal PcOut	   : std_logic_vector(31 downto 0) := (others => '0');
 
 
 -------------------------------------------------- Main Functions --------------------------------------------------                                                                                        	
 begin
 ----------------------------------------------------- Adder32 ------------------------------------------------------
 	ADDR32:Adder32
-		port map ( Inp_A => Adder4Out,
-					  Inp_B => PC_Immed,
+		port map ( Inp_A 	 => Adder4Out,
+					  Inp_B 	 => PC_Immed,
 					  DataOut => Adder32Out
 		);
 		
 ------------------------------------------------------ Adder4 ------------------------------------------------------
 	ADDR4:Adder4
-		port map ( DataIn => PcOut,
+		port map ( DataIn  => PcOut,
 					  DataOut => Adder4Out
 		);	
 		
+------------------------------------------------------ Mux32 -------------------------------------------------------
 	AdderOut(0) <= Adder4Out;
 	AdderOut(1) <= Adder32Out;
 	
------------------------------------------------------- Mux32 -------------------------------------------------------
 	MUX:Mux32
-		port map ( DataIn => AdderOut,
+		port map ( DataIn  => AdderOut,
 					  DataSel => PC_sel,
 					  DataOut => MuxOut
 		);	
 		
 ---------------------------------------------------- Register32 ----------------------------------------------------
 	REGISTER_PC:Register32
-		port map ( CLK => Clk,
-					  RST => Reset,
-					  WE => PC_LdEn,
-					  DataIn => MuxOut,
+		port map ( CLK     => Clk,
+					  RST	    => Reset,
+					  WE 		 => PC_LdEn,
+					  DataIn  => MuxOut,
 					  DataOut => PcOut
 		);	
 		

@@ -15,7 +15,7 @@ ARCHITECTURE behavior OF Register32_tb IS
     
    -- Input Signal
    signal CLK, RST, WE : std_logic := '0';
-   signal DataIn 		: std_logic_vector(31 downto 0) := (others => '0');
+   signal DataIn 		  : std_logic_vector(31 downto 0) := (others => '0');
 
  	-- Output Signal
    signal DataOut : std_logic_vector(31 downto 0);
@@ -24,14 +24,14 @@ ARCHITECTURE behavior OF Register32_tb IS
    constant CLK_period : time := 100 ns;
 	signal stop_the_clock: boolean;
 
- 
+
 BEGIN
 	-- Declaring the Register32 port map
    uut: Register32 
-		PORT MAP ( CLK => CLK,
-					  RST => RST,
-					  WE => WE,
-					  DataIn => DataIn,
+		PORT MAP ( CLK 	 => CLK,
+					  RST 	 => RST,
+					  WE 	    => WE,
+					  DataIn  => DataIn,
 					  DataOut => DataOut
 		);
 
@@ -76,7 +76,7 @@ BEGIN
 		-------------------------------------------------------------------------------------------------------- 600ns
 	
 --------------------------------------------------------------------------------------------------------------
-	-- Testing if the RST works synchronously.
+	-- Testing if the RST works correctly.
 		-------------------------------------------------------------------------------------------------------- 600ns
 		RST <= '1';												 -- Reset will be set to 1 for the following tests
 		DataIn <= "00000000000000000111111111111111"; -- DataIn will be equal to 32767 for the following tests
