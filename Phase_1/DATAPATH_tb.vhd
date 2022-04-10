@@ -6,26 +6,26 @@ END DATAPATH_tb;
  
 ARCHITECTURE behavior OF DATAPATH_tb IS 
  
-	COMPONENT DATAPATH
+	component DATAPATH
 		Port ( Clk, Rst   		 					  : in  std_logic;
-			  -- IFSTAGE INPUTS/OUTPUTS -----------------------------------------
-			  PC_sel, PC_LdEn  		  		     : in  std_logic;
-			  PC_out								     : out std_logic_vector (31 downto 0);
-       	  -- DECSTAGE INPUTS ------------------------------------------------
-			  RF_WrData_sel, RF_B_sel, RF_WrEn : in  std_logic;
-			  ImmExt_s			 					  : in  std_logic_vector ( 1 downto 0);  
-			  Instruction 							  : in  std_logic_vector (31 downto 0);
-			  -- EXSTAGE INPUTS -------------------------------------------------	
-			  ALU_Bin_sel		 					  : in  std_logic;	
-			  ALU_func			 					  : in  std_logic_vector ( 3 downto 0);
-			  ALU_zero, ALU_cout, ALU_ovf		  : out std_logic;
-			  -- MEMSTAGE INPUTS/OUTPUTS ----------------------------------------
-			  ByteOp, Mem_WrEn  					  : in  std_logic;
-			  MM_RdData 		 					  : in  std_logic_vector (31 downto 0);
-			  MM_WrEn			 					  : out std_logic;
-			  MM_Addr, MM_WrData 	  			  : out STD_LOGIC_VECTOR (31 downto 0)			  
+			    -- IFSTAGE INPUTS/OUTPUTS -----------------------------------------
+			    PC_sel, PC_LdEn  		  		     : in  std_logic;
+			    PC_out								     : out std_logic_vector (31 downto 0);
+       	    -- DECSTAGE INPUTS ------------------------------------------------
+			    RF_WrData_sel, RF_B_sel, RF_WrEn : in  std_logic;
+			    ImmExt_s			 					  : in  std_logic_vector ( 1 downto 0);  
+			    Instruction 							  : in  std_logic_vector (31 downto 0);
+			    -- EXSTAGE INPUTS -------------------------------------------------	
+			    ALU_Bin_sel		 					  : in  std_logic;	
+			    ALU_func			 					  : in  std_logic_vector ( 3 downto 0);
+			    ALU_zero, ALU_cout, ALU_ovf		  : out std_logic;
+			    -- MEMSTAGE INPUTS/OUTPUTS ----------------------------------------
+			    ByteOp, Mem_WrEn  					  : in  std_logic;
+			    MM_RdData 		 					  : in  std_logic_vector (31 downto 0);
+			    MM_WrEn			 					  : out std_logic;
+			    MM_Addr, MM_WrData 	  			  : out STD_LOGIC_VECTOR (31 downto 0)			  
 		);
-   END COMPONENT;
+   end component;
     
 	component RAM is
 		 port ( clk, data_we 		  			  : in  std_logic;
@@ -96,7 +96,7 @@ BEGIN
 		PORT MAP ( clk        => Clk, 
 					  data_we    => MM_WrEn,
 					  inst_addr  => PC_out (12 downto 2),
-					  data_addr  => MM_Addr(10 downto 0),
+					  data_addr  => MM_Addr(12 downto 2),
 					  data_din 	 => MM_WrData,
 					  inst_dout  => Instruction,
 					  data_dout  => MM_RdData
@@ -117,6 +117,7 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
+-- The following tests where made with rom1.data as the rom file. 
 ----------------------------------------------------------------------------------------------
 	-- Holding the reset for 1 clock period.
 		---------------------------------------------------------------------------------------- 0ns
@@ -215,7 +216,7 @@ BEGIN
 		Mem_WrEn  	  <= '0';  	 -- Setting the write enable of ram off
 		wait for clk_period*1;
 		---------------------------------------------------------------------------------------- 700ns
-		-- nand r4,r0,r16
+		-- nand r4,r10,r16
 		---------------------------------------------------------------------------------------- 700ns
 		-- IFstage -------------
 		PC_sel        <= '0'; 	 -- Setting PC value to increment by 4 in each clock cycle
@@ -223,7 +224,7 @@ BEGIN
 		-- DECstage	------------	
 		RF_WrEn       <= '1';    -- Setting the RF able to write to registers
 		RF_WrData_sel <= '0';    -- Choosing the ALU_out as the DataIN to register 
-		RF_B_sel      <= '1'; 	 -- Choosing to read the register(instruction(20-16)) on RF_B
+		RF_B_sel      <= '0'; 	 -- Choosing to read the register(instruction(20-16)) on RF_B
 		ImmExt_s      <= "XX"; 	 -- Setting the ImmExt to perform nothing
 		-- EXstage -------------
 		ALU_Bin_sel   <= '0';  	 -- Chooosing the RF_B as the second input in ALU
@@ -237,5 +238,5 @@ BEGIN
 		---------------------------------------------------------------------------------------- 800ns
 		stop_the_clock <= true;
       wait;
-   end process;
+   end process; 
 END;

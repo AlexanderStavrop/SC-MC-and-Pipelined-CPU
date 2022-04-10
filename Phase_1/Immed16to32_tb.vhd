@@ -13,8 +13,8 @@ ARCHITECTURE behavior OF Immed16to32_tb IS
 	END COMPONENT;
     
 	-- Input signals
-   signal Instr_in : std_logic_vector(15 downto 0) := (others => '0');
-   signal Instr_sel : std_logic_vector(1 downto 0) := (others => '0');
+   signal Instr_in  : std_logic_vector(15 downto 0) := (others => '0');
+   signal Instr_sel : std_logic_vector( 1 downto 0) := (others => '0');
 
  	-- Output signals
    signal instr_out : std_logic_vector(31 downto 0);
@@ -36,33 +36,33 @@ BEGIN
 		----------------------------------------------------------------------------------------- 0ns
 		Instr_in <= "0000000000000010"; -- Setting the PC_immed value to 2.
 		----------------------------------------------------------------------------------------- 0ns
-		Instr_sel <= "00";				  -- Choosing sign extend to 32 bits.
-		wait for 100ns;					  -- Expecting Instr_out to be 2 but in 32 bits.
+		Instr_sel <= "00";				  -- Choosing zero fill on the upper 16 bits.
+		wait for 100ns;					  -- Expecting Instr_out to be 2.
 		----------------------------------------------------------------------------------------- 100ns
-		Instr_sel <= "01";				  -- Choosing sign extend to 32 bits with 2 left shitfs.
-		wait for 100ns;					  -- Expecting Instr_out to be 16.
+		Instr_sel <= "01";				  -- Choosing sign extend to 32 bits.
+		wait for 100ns;					  -- Expecting Instr_out to be 2.
 		----------------------------------------------------------------------------------------- 200ns
-		Instr_sel <= "10";				  -- Choosing 16 left-shift and zero-fill.
+		Instr_sel <= "10";				  -- Choosing zero fill on the lower 16 bits.
 		wait for 100ns;					  -- Expecting Instr_out to be 131072.
 		----------------------------------------------------------------------------------------- 300ns
-      Instr_sel <= "11";				  -- Choosing sign extend to 32 bits.
-		wait for 100ns;					  -- Expecting Instr_out to be 2.
+      Instr_sel <= "11";				  -- Choosing sign extend and 2 left shifts.
+		wait for 100ns;					  -- Expecting Instr_out to be 8.
 		----------------------------------------------------------------------------------------- 400ns
 		-- Negative numbers
 		----------------------------------------------------------------------------------------- 400ns
 		Instr_in  <= "1111111111111110"; -- Setting the PC_immed value to -2.
 		----------------------------------------------------------------------------------------- 400ns
-		Instr_sel <= "00";				  -- Choosing sign extend to 32 bits.
-		wait for 100ns;					  -- Expecting Instr_out to be -2 but in 32 bits.
+		Instr_sel <= "00";				  -- Choosing zero fill on the upper 16 bits.
+		wait for 100ns;					  -- Expecting Instr_out to be 65534.
 		----------------------------------------------------------------------------------------- 500ns
-		Instr_sel <= "01";				  -- Choosing sign extend to 32 bits with 2 left shitfs.
-		wait for 100ns;					  -- Expecting Instr_out to be -8.
+		Instr_sel <= "01";				  -- Choosing sign extend to 32 bits.
+		wait for 100ns;					  -- Expecting Instr_out to be -1.
 		----------------------------------------------------------------------------------------- 600ns
-		Instr_sel <= "10";				  -- Choosing 16 left-shift and zero-fill.
+		Instr_sel <= "10";				  -- Choosing zero fill on the lower 16 bits.
 		wait for 100ns;					  -- Expecting Instr_out to be -131072.
 		----------------------------------------------------------------------------------------- 700ns
-      Instr_sel <= "11";				  -- Choosing sign extend to 32 bits.
-		wait for 100ns;					  -- Expecting Instr_out to be 65532.
+      Instr_sel <= "11";				  -- Choosing sign extend and 2 left shifts.
+		wait for 100ns;					  -- Expecting Instr_out to be -8.
 		----------------------------------------------------------------------------------------- 800ns
 		wait;
    end process;

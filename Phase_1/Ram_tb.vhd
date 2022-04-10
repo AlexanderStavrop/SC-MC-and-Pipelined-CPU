@@ -36,11 +36,11 @@ ARCHITECTURE behavior OF Ram_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: Ram PORT MAP ( clk => clk,
-							  data_we => data_we,
+   uut: Ram PORT MAP ( clk 		=> clk,
+							  data_we 	=> data_we,
 							  inst_addr => inst_addr,
 							  data_addr => data_addr,
-							  data_din => data_din,
+							  data_din  => data_din,
 							  inst_dout => inst_dout,
 							  data_dout => data_dout
 				);
@@ -119,14 +119,14 @@ BEGIN
  			wait for clk_period;										-- Expecting data_out equal 1754 + i*2 after 12ns from clocks rising edge.
       end loop;
 		--------------------------------------------------------------------------------------------------------------------------------------------------------- 3100ns
-		data_addr <= "00010000100";							 	-- Choosing data_addr 132.
+		data_addr <= "00000010100";							 	-- Choosing data_addr 20.
 		data_din  <= "00000000000000000001100100100000"; 	-- Setting data_in to 6432.
       wait for clk_period;			 							 	-- Expecting Data out 6432 after 12ns from clocks rising edge.
  		--------------------------------------------------------------------------------------------------------------------------------------------------------- 3200ns
-		for i in 133 to 136 loop									-- Looping for the addresses 133 to 136.
+		for i in 21 to 23 loop									   -- Looping for the addresses 21 to 23.
 			data_addr <= data_addr + 1;							-- Incrementing the data address by 1.
          data_din  <= data_din  + 2;						 	-- Incrementing the data in by 2.			
- 			wait for clk_period;										-- Expecting data_out equal to the previews data_in plus 2.
+ 			wait for clk_period;										-- Expecting data_out equal to 6432 + i*2 after 12ns from clocks rising edge.
       end loop;
 		--------------------------------------------------------------------------------------------------------------------------------------------------------- 3700ns
 		data_we  <= '0';												-- Write enable is off.
@@ -139,10 +139,10 @@ BEGIN
  			wait for clk_period;										-- Expecting data_out equal to 1754 + i*2.
       end loop;
 		--------------------------------------------------------------------------------------------------------------------------------------------------------- 4300ns
-		data_addr <= "00010000100";								-- Setting the data address to 132.
+		data_addr <= "00000010100";							 	-- Choosing data_addr 20.
       wait for clk_period;			 							 	-- Expecting Data out equal to 6432.
 		--------------------------------------------------------------------------------------------------------------------------------------------------------- 4400ns
-		for i in 133 to 136 loop									-- Looping for the addresses 133 to 136.
+		for i in 21 to 23 loop									   -- Looping for the addresses 21 to 23.
 			data_addr <= data_addr + 1;							-- Incrementing the data address by 1.
  			wait for clk_period;										-- Expecting data_out equal to 6432 + i*2.
       end loop;

@@ -62,10 +62,17 @@ BEGIN
 		RF_A  <= "00000000000000000000000000010101"; -- Setting the value of RF_A equal to 21
 		RF_B  <= "00000000000000000000000000001111";	-- Setting the value of RF_B equal to 15
 		Immed <= "00000000000000000000000000000100"; -- Setting the value of Immed equal to 4
-	   ALU_Bin_sel <= '0';									-- Choosing the Immed as the second ALU input
+	   ALU_Bin_sel <= '1';									-- Choosing the Immed as the second ALU input
 		ALU_func <= "0001";									-- Choosing the subtraction function of ALU
 		wait for 100ns;										-- Expecting ALU_out equal to 17
 		----------------------------------------------------------------------------------------------------- 200ns
+		RF_A  <= "00000000000000000000000000010101"; -- Setting the value of RF_A equal to 21
+		RF_B  <= "00000000000000000000000000010101";	-- Setting the value of RF_B equal to 21
+		Immed <= "00000000000000000000000000000100"; -- Setting the value of Immed equal to 4
+	   ALU_Bin_sel <= '0';									-- Choosing the Immed as the second ALU input
+		ALU_func <= "0001";									-- Choosing the subtraction function of ALU
+		wait for 100ns;										-- Expecting ALU_out equal to 0 and Zero out flag.
+		----------------------------------------------------------------------------------------------------- 300ns
 		wait;
    end process; 
 
