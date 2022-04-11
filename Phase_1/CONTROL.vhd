@@ -17,7 +17,7 @@ entity CONTROL is
 	 );
 end CONTROL;
 
-architecture Behavioral of CONTROL is
+	architecture Behavioral of CONTROL is
 	
 	-- Needed signals
 	signal Opcode : std_logic_vector (5 downto 0);

@@ -47,7 +47,7 @@ BEGIN
 		wait for clk_period*2;	
 		Reset <= '0';
 		PC_LdEnbl <= '1';
-		wait for clk_period*48;
+		wait for clk_period*20;
 		
 		stop_the_clock <= true;
       wait;
