@@ -4,8 +4,8 @@ use ieee.std_logic_arith.all;
 
 -- Creating the entity of Adder32
 entity Adder32 is
-	Port ( Inp_A, Inp_B : in  std_logic_vector(31 downto 0);
-		    DataOut      : out std_logic_vector(31 downto 0)
+	Port ( 	Inp_A, Inp_B 	: in    std_logic_vector(31 downto 0);
+				DataOut      	: out std_logic_vector(31 downto 0)
 	);
 end Adder32;
 
