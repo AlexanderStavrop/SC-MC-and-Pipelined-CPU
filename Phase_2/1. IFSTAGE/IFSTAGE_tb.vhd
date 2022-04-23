@@ -15,18 +15,17 @@ ARCHITECTURE behavior OF IFSTAGE_tb IS
    END COMPONENT;
     
 	 component RAM is
-		 port ( clk, data_we 		  			  : in  std_logic;
-				  inst_addr, data_addr 			  : in  std_logic_vector(10 downto 0);
-				  data_din 				  			  : in  std_logic_vector(31 downto 0);
-				  inst_dout				  			  : out std_logic_vector(31 downto 0);
-			     data_dout 			  			  : out std_logic_vector(31 downto 0)
+		port ( clk, data_we 		  		  : in  std_logic;
+				   inst_addr, data_addr  : in  std_logic_vector(10 downto 0);
+				   data_din 				  	  : in  std_logic_vector(31 downto 0);
+				   inst_dout				  	  : out std_logic_vector(31 downto 0);
+				   data_dout 			  		  : out std_logic_vector(31 downto 0)
 		);
 	end component; 
 
    -- Input signal
    signal Clk      		  : std_logic := '0';
    signal Reset    		  : std_logic := '0';
-	signal inst_addr    :  std_logic_vector(10 downto 0) := (others => '0');
    signal PC_Immed  : std_logic_vector(31 downto 0) := (others => '0');
 	signal data_we      : std_logic := '0';
    signal PC_sel         : std_logic := '0';
