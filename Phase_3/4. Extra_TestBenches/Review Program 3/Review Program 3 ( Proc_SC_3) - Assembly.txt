@@ -1,0 +1,19 @@
+addi r5, r0, 16
+ori r1, r0, 2
+sll r1, r1
+bne r5, r1, -2
+lui r6, r0, 0xDEAD
+ori r7, r0, 0x0FEF
+sra r2, r5
+add r10, r2, r1
+sw r6, 0x0(r10)
+sb r7, 0x0(r5)
+lw r18, 0x0(r10)
+lb r20, 0x0(r5)
+addi r5, r5, 8
+beq r5, r10, -2
+ori r20, r20, 0xBE00
+add r24, r18, r20
+
+## Associated with rom3.data and PROC_SC_3.wcfg
+

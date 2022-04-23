@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Alex/Desktop/Organosh_real/Phase_1/Immed16to32_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="immed16to32_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="3" />
+   <wvobject fp_name="/immed16to32_tb/instr_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instr_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_in[15:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/immed16to32_tb/instr_sel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instr_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_sel[1:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/immed16to32_tb/instr_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instr_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#5500ff</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
