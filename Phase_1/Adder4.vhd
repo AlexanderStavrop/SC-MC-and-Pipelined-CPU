@@ -4,8 +4,8 @@ use ieee.std_logic_unsigned.all;
 
 -- Creating the entity of Adder4
 entity Adder4 is
-	Port ( DataIn 	: in  std_logic_vector(31 downto 0);
-          DataOut : out std_logic_vector(31 downto 0)
+	Port ( 	DataIn 	: in  std_logic_vector(31 downto 0);
+				DataOut : out std_logic_vector(31 downto 0)
 	);
 end Adder4;
 
