@@ -55,3 +55,4 @@ begin
 	-- Updating the Output from the corresponding variable after 10ns
 	Dout <= IN_out after 10ns;                                             							-- Setting the output accordingly                          														
 end Behavioral;
+ 
