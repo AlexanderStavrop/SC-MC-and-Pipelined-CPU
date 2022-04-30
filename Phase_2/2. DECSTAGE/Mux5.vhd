@@ -11,8 +11,8 @@ use work.Mux5_pkg.all;
 
 entity Mux5 is
 	Port ( 	DataIn 	: in MuxMatrix5;
-				DataSel  : in std_logic;
-				DataOut : out std_logic_vector(4 downto 0)
+			DataSel : in std_logic;
+			DataOut : out std_logic_vector(4 downto 0)
 	);
 end Mux5;
 
@@ -23,8 +23,8 @@ architecture Behavioral of Mux5 is
 	
 begin
 	with DataSel select 
-		IN_out <= 	DataIn(0) 	when '0', 	 		-- Case for DataSel 0.
-							DataIn(1) 	when '1',  	 		-- Case for DataSel 1.			
-							"00000" 		when others;		
-	DataOut <= IN_out after 10ns; 					-- Setting the DataOut value accordingly with delay added.
+		IN_out <= DataIn(0) when '0', 	 -- Case for DataSel 0.
+				  DataIn(1) when '1',  	 -- Case for DataSel 1.			
+				  "00000" 	when others; -- Every other case we set it to 0		
+	DataOut <= IN_out after 10ns; 		 -- Setting the DataOut value accordingly with delay added.
 end Behavioral;
