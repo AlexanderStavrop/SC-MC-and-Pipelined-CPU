@@ -12,8 +12,8 @@ use work.GenericMux32_pkg.all;
 
 entity GenericMux32 is
     Port (  DataIn : in  MuxMatrix32;
-				DataSel: in  STD_LOGIC_VECTOR (4 downto 0);
-				DataOut: out STD_LOGIC_VECTOR (31 downto 0)
+			DataSel: in  STD_LOGIC_VECTOR (4 downto 0);
+			DataOut: out STD_LOGIC_VECTOR (31 downto 0)
 	 );
 end GenericMux32;
 
