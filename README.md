@@ -15,7 +15,15 @@ In this phase hte ALU and the Register File modules are created.
 
 ### ALU
 The ALU module executes all the logic and arithmetic operations. 
-
+| Signal |  Type  | Bit Length |  Description                             |
+| :-:    |  :-:   |     :-:  	 |        :-  	                            | 
+|  A     | Input  |   32 Bits  | 1st Input                                | 
+|  B     | Input  |   32 Bits  | 2nd Input                                |
+|  OP    | Input  |    4 Bits  | Operation code                           |
+|  Dout  | Output |   32 Bits  | Result of operation                      |
+|  Zero  | Output |    1 Bits  | Flag indicating the result is equal to 0 |
+|  Cout  | Output |    1 Bits  | Flag indicating there is Carry out       |
+|  Ovf   | Output |    1 Bits  | Flag indicating there is Overflow        |
 
 
 ### RegisterFile
