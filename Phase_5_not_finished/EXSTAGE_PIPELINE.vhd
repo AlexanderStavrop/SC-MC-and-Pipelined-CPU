@@ -19,6 +19,7 @@ architecture Behavioral of EXSTAGE_PIPELINE is
 		);
 	end component;
 	
+	
 	component Mux32 is
 		port( DataIn  		   : in MuxMatrix32;
 			  DataSel 		   : in std_logic;

@@ -7,11 +7,13 @@ entity Register151 is
 		   WB_1_IN, WB_2_IN				: in  std_logic;
 		   WB_1_OUT, WB_2_OUT		 	: out std_logic;		   
 		   -- M_Reg ----------------------------------------------------------------
-		   M_1_IN, M_2_IN				: in  std_logic;
-		   M_1_OUT, M_2_OUT				: out std_logic;
+		   M_1_IN, M_2_IN, M_3_IN		: in  std_logic;
+		   M_1_OUT, M_2_OUT, M_3_OUT	: out std_logic;
 		   -- EX_Reg ---------------------------------------------------------------
-		   EX_1, EX_2, EX_3 			: in  std_logic;
-		   EX_1_out, EX_2_out, EX_3_out : out std_logic;
+		   EX_1_IN						: in  std_logic_vector(3 downto 0);	
+		   EX_2_IN			 			: in  std_logic;
+		   EX_1_OUT						: out std_logic_vector(3 downto 0);
+		   EX_2_OUT						: out std_logic;
 		   -- PC_4_Reg -------------------------------------------------------------
 		   Adder_IN 					: in  std_logic_vector (31 downto 0);
 		   Adder_OUT					: out std_logic_vector (31 downto 0);
@@ -49,9 +51,25 @@ architecture Behavioral of Register151 is
 	
 	component ThreeBitRegister is
 		Port( Clk, Rst, WE, Din_1, Din_2, Din_3 : in  std_logic;
-			  Dout_1, Dout_2, Dout_3 			: out std_logic
+			  Dout_1, Dout_2, Dout_3  			: out std_logic
 		);
 	end component;
+	
+	component Register1 is
+		port( CLK, RST, WE 				 		: in  std_logic;
+			  DataIn       				 		: in  std_logic;
+			  DataOut     				 		: out std_logic
+		);
+	end component;
+	
+	
+	component Register4 is
+		port( CLK, RST, WE 				 		: in  std_logic;
+			  DataIn       				 		: in  std_logic_vector (3 downto 0);
+			  DataOut     				 		: out std_logic_vector (3 downto 0)
+		);
+	end component;
+	
 	
 	component Register5 is
 		port( CLK, RST, WE 				 		: in  std_logic;
@@ -82,27 +100,33 @@ begin
 		);
 	
 	------------------------------------ M_Reg ------------------------------------------
-	M_Reg:TwoBitRegister
+	M_Reg:ThreeBitRegister
 		port map ( Clk 	  => Clk,
 				   Rst 	  => Rst,
 				   WE  	  => WE,
 				   Din_1  => M_1_IN,
 				   Din_2  => M_2_IN, 
+				   Din_3  => M_3_IN, 
 				   Dout_1 => M_1_OUT, 
-				   Dout_2 => M_2_OUT
+				   Dout_2 => M_2_OUT,
+				   Dout_3 => M_3_OUT
 		);
 	
 	------------------------------------ EX_Reg -----------------------------------------
-	EX_Reg:ThreeBitRegister
-		port map ( Clk 	  => Clk,
-				   Rst 	  => Rst,
-				   WE  	  => WE,
-				   Din_1  => EX_1,
-				   Din_2  => EX_2, 
-				   Din_3  => EX_3, 
-				   Dout_1 => EX_1_out, 
-				   Dout_2 => EX_2_out,
-				   Dout_3 => EX_3_out
+	EX_Reg_1:Register4 
+		port map ( Clk 	   => Clk,
+				   Rst 	   => Rst, 
+				   WE  	   => WE,		
+				   DataIn  => EX_1_IN,
+				   DataOut => EX_1_OUT
+		);
+	
+	EX_Reg_2:Register1 
+		port map ( Clk 	   => Clk,
+				   Rst 	   => Rst, 
+				   WE  	   => WE,		
+				   DataIn  => EX_2_IN,
+				   DataOut => EX_2_OUT
 		);
 
 ---------------------------------- DECSTAGE Registers -----------------------------------
@@ -111,72 +135,72 @@ begin
 	PC_4_Reg:Register32 
 		port map ( Clk 	   => Clk,
 				   Rst 	   => Rst, 
-				   WE  	   => WE,		-- Common Write Enable
-				   DataIn  => Adder_IN,	-- Value of the PC+4 from IF_reg
-				   DataOut => Adder_OUT	-- Output of Register
+				   WE  	   => WE,		
+				   DataIn  => Adder_IN,	
+				   DataOut => Adder_OUT	
 		);
 		
 	---------------------------------- RF_A_Reg -----------------------------------------	
 	RF_A_Reg:Register32 
 		port map ( Clk 	   => Clk,
 				   Rst 	   => Rst, 
-				   WE  	   => WE,		-- Common Write Enable
-				   DataIn  => RF_A_IN,	-- Value of BusA from RF
-				   DataOut => RF_A_OUT	-- Output of Register
+				   WE  	   => WE,		
+				   DataIn  => RF_A_IN,	
+				   DataOut => RF_A_OUT	
 		);
 		
 	---------------------------------- RF_A_Reg -----------------------------------------	
 	RF_B_Reg:Register32  	
 		port map ( Clk 	   => Clk,
 				   Rst 	   => Rst, 
-				   WE  	   => WE,		-- Common Write Enable
-				   DataIn  => RF_B_IN,	-- Value of BusB from RF
-				   DataOut => RF_B_OUT	-- Output of Register
+				   WE  	   => WE,		
+				   DataIn  => RF_B_IN,	
+				   DataOut => RF_B_OUT	
 		);
 		
 	---------------------------------- Immed_Reg ----------------------------------------	
 	Immed_Reg:Register32  	
 		port map ( Clk 	   => Clk,
 				   Rst 	   => Rst, 
-				   WE  	   => WE,		-- Common Write Enable
-				   DataIn  => Immed_IN,	-- Value of BusB from RF
-				   DataOut => Immed_OUT	-- Output of Register
+				   WE  	   => WE,		
+				   DataIn  => Immed_IN,	
+				   DataOut => Immed_OUT	
 		);
 		
 	----------------------------------- RS_Reg ------------------------------------------
 	RS_Reg:Register5  	
 		port map ( Clk 	   => Clk,
 				   Rst 	   => Rst, 
-				   WE  	   => WE,		-- Common Write Enable
-				   DataIn  => RS_IN,	-- Value of RS from RF
-				   DataOut => RS_OUT	-- Output of Register
+				   WE  	   => WE,		
+				   DataIn  => RS_IN,	
+				   DataOut => RS_OUT	
 		);
 		
 	----------------------------------- RD_Reg ------------------------------------------
 	RD_Reg:Register5  	
 		port map ( Clk 	   => Clk,
 				   Rst 	   => Rst,  
-				   WE  	   => WE,		-- Common Write Enable
-				   DataIn  => RD_IN,	-- Value of RD from RF
-				   DataOut => RD_OUT	-- Output of Register
+				   WE  	   => WE,		
+				   DataIn  => RD_IN,	
+				   DataOut => RD_OUT	
 		);
 	
 	----------------------------------- RT_Reg ------------------------------------------
 	RT_Reg:Register5  	
 		port map ( Clk 	   => Clk,
 				   Rst 	   => Rst, 
-				   WE  	   => WE,		-- Common Write Enable
-				   DataIn  => RT_IN,	-- Value of RT from RF
-				   DataOut => RT_OUT	-- Output of Register
+				   WE  	   => WE,		
+				   DataIn  => RT_IN,	
+				   DataOut => RT_OUT	
 		);
 		
 	---------------------------------- Mux_Reg -------------------------------------------
 	Mux_Reg:Register5  	
 		port map ( Clk 	   => Clk,
 				   Rst 	   => Rst, 
-				   WE  	   => WE,		-- Common Write Enable
-				   DataIn  => Mux_IN,	-- Value of Mux5 from RF
-				   DataOut => Mux_OUT	-- Output of Register
+				   WE  	   => WE,		
+				   DataIn  => Mux_IN,
+				   DataOut => Mux_OUT
 		);
 
 end Behavioral;

@@ -7,15 +7,15 @@ entity DATAPATH_MC is
 		   PC_sel, PC_LdEn, IR_WrEn								  : in  std_logic;
 		   PC_out												  : out std_logic_vector (31 downto 0);
 		   -- DECSTAGE INPUTS ----------------------------------------------------
-		   RF_WrData_sel, RF_B_sel, RF_WrEn, RegA_WrEn, RegB_WrEn : in  std_logic;
+		   RF_WrData_sel, RF_B_sel, RF_WrEn, RF_A_WrEn, RF_B_WrEn : in  std_logic;
 		   ImmExt_s			 									  : in  std_logic_vector ( 1 downto 0);  
 		   Instruction 											  : in  std_logic_vector (31 downto 0);
 		   -- EXSTAGE INPUTS -----------------------------------------------------	
-		   ALU_Bin_sel, RegAlu_WrEn							      : in  std_logic;	
+		   ALU_Bin_sel, ALUOut_Reg_WrEn							  : in  std_logic;	
 		   ALU_func			 									  : in  std_logic_vector ( 3 downto 0);
 		   ALU_zero, ALU_cout, ALU_ovf							  : out std_logic;
 		   -- MEMSTAGE INPUTS/OUTPUTS --------------------------------------------
-		   ByteOp, Mem_WrEn, RegMem_WrEn						  : in  std_logic;
+		   ByteOp, Mem_WrEn, Mem_Reg_WrEn					  	  : in  std_logic;
 		   MM_RdData 		 									  : in  std_logic_vector (31 downto 0);
 		   MM_WrEn			 									  : out std_logic;
 		   MM_Addr, MM_WrData 	  								  : out std_logic_vector (31 downto 0)			  
@@ -34,7 +34,7 @@ architecture Behavioral of DATAPATH_MC is
 	
 	component DECSTAGE is
 		Port ( RF_WrEn, RF_WrData_sel, RF_B_sel, Clk, Rst : in  std_logic;
-			   immExt									  : in  std_logic_vector (1 downto 0);
+			   immExt									  : in  std_logic_vector ( 1 downto 0);
 			   Instr, ALU_out, MEM_out 			      	  : in  std_logic_vector (31 downto 0);
 			   Immed, RF_A, RF_B 						  : out std_logic_vector (31 downto 0) 
 		);
@@ -43,7 +43,7 @@ architecture Behavioral of DATAPATH_MC is
 	component EXSTAGE is
 		Port ( RF_A, RF_B, Immed 			  		      : in  std_logic_vector (31 downto 0);
 			   ALU_Bin_sel  	    			  		  : in  std_logic;
-               ALU_func 			 			  		  : in  std_logic_vector (3 downto 0);
+               ALU_func 			 			  		  : in  std_logic_vector ( 3 downto 0);
                ALU_out 			 			  			  : out std_logic_vector (31 downto 0);
                ALU_zero, ALU_cout, ALU_ovf 				  : out std_logic
 		);
@@ -98,36 +98,36 @@ begin
 				   RF_WrData_sel => RF_WrData_sel,
 				   RF_B_sel      => RF_B_sel,               
 				   immExt        => ImmExt_s,
-				   Instr 		 => instr_Reg, 			-- Instruction,
+				   Instr 		 => instr_Reg, 			
 				   Clk           => Clk,
 				   Rst           => Rst,    
-				   ALU_out		 => ALU_out_Reg,			-- IN_ALU_out,
-				   MEM_out 	     => MEM_out_Reg, 		-- IN_MEM_out,
+				   ALU_out		 => ALU_out_Reg,			
+				   MEM_out 	     => MEM_out_Reg, 		
 				   Immed 		 => IN_IMMED_out,
 				   RF_A			 => busA,
 				   RF_B			 => busB					
 		);
 	
-	RegA:Register32 
+	RF_A_Reg:Register32 
 		port map ( CLK     	  	 => Clk,
 				   RST     		 => Rst,
-				   WE  	   	  	 => RegA_WrEn,
+				   WE  	   	  	 => RF_A_WrEn,
 				   DataIn  		 => busA,
 				   DataOut 		 => busA_Reg				
 		);	
 	
-	RegB:Register32 
+	RF_B_Reg:Register32 
 		port map ( CLK     	  	 => Clk,
 				   RST     		 => Rst,
-				   WE  	   	  	 => RegB_WrEn,
+				   WE  	   	  	 => RF_B_WrEn,
 				   DataIn  		 => busB,
 				   DataOut 		 => busB_Reg				
 		);	
 		
 ----------------------------------------------------- EXSTAGE ------------------------------------------------------
 	EX_module:EXSTAGE
-		Port map ( RF_A        	 => busA_Reg,			--busA, 
-				   RF_B          => busB_Reg,    	--busB,
+		Port map ( RF_A        	 => busA_Reg,			
+				   RF_B          => busB_Reg,    	
 				   Immed		 => IN_IMMED_out,
 				   ALU_Bin_sel   => ALU_Bin_sel,
 				   ALU_func	     => ALU_func, 
@@ -141,7 +141,7 @@ begin
 	ALUOut_Reg:Register32 
 		port map ( CLK     	  	 => Clk,
 				   RST     		 => Rst,
-				   WE  	   	  	 => RegAlu_WrEn,
+				   WE  	   	  	 => ALUOut_Reg_WrEn,
 				   DataIn  		 => IN_ALU_out,
 				   DataOut 		 => ALU_out_Reg				
 		);
@@ -149,8 +149,8 @@ begin
 	MEM_module:MEMSTAGE
 		Port map( ByteOp       	 => ByteOp,
 				  Mem_WrEn	  	 => Mem_WrEn,
-				  ALU_MEM_Addr   => ALU_out_Reg, 	-- IN_ALU_out,
-				  MEM_DataIn     => busB_Reg, 		-- busB,
+				  ALU_MEM_Addr   => ALU_out_Reg, 	
+				  MEM_DataIn     => busB_Reg, 	
 				  MM_RdData      => MM_RdData, 
 				  MM_WrEn        => MM_WrEn,
 				  MM_Addr        => MM_Addr,
@@ -161,7 +161,7 @@ begin
 	MEMOut_Reg:Register32 
 		port map ( CLK     	  	 => Clk,
 				   RST     		 => Rst,
-				   WE  	   	  	 => RegMem_WrEn,
+				   WE  	   	  	 => Mem_Reg_WrEn,
 				   DataIn  		 => IN_MEM_out,
 				   DataOut 		 => MEM_out_Reg				
 		);

@@ -11,11 +11,22 @@ entity Register66 is
 		   MEM_Data_OUT		  : out std_logic_vector (31 downto 0);
 		   -- ALU_Res_Reg ------------------------------------------	
 		   ALURes_IN 		  : in  std_logic_vector (31 downto 0);
-		   ALURes_Out 		  : out std_logic_vector (31 downto 0)
+		   ALURes_Out 		  : out std_logic_vector (31 downto 0);
+		    -- RD_Reg ------------------------------------------------------
+		   RD_IN 			  : in  std_logic;
+		   RD_OUT			  : out std_logic
 	);
 end Register66;
 
 architecture Behavioral of Register66 is
+
+	component Register1 is
+		port( Clk, Rst, WE 				 : in  std_logic;
+			  DataIn       				 : in  std_logic;
+			  DataOut      				 : out std_logic
+		);
+	end component;
+	
 	component TwoBitRegister is
 		Port( Clk, Rst, WE, Din_1, Din_2 : in  std_logic;
 			  Dout_1, Dout_2 			 : out std_logic
@@ -61,6 +72,15 @@ begin
 				   WE  	   => WE,		    	
 				   DataIn  => ALURes_IN,		
 				   DataOut => ALURes_Out
+		);
+	
+	---------------------------------- RD_Reg -------------------------------------------
+	RD_Reg:Register5  	
+		port map ( Clk 	   => Clk,
+				   Rst 	   => Rst,  
+				   WE  	   => WE,		
+				   DataIn  => RD_IN,	
+				   DataOut => RD_OUT	
 		);
 		
 end Behavioral;
