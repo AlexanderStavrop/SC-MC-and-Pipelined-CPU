@@ -64,6 +64,8 @@ Using the above components, we create the Register File module
 ![image](https://user-images.githubusercontent.com/56675566/168846080-8f96f9a7-fd41-4e8f-b3f1-ba0086834559.png)
 
 ## Phase 2
+
+In these phase the IFSTAGE, DECSTAGE, EXSTAGE and MEMSTAGE modules are created
 ## Phase 3
 ## Phase 4
 ## Phase 5
