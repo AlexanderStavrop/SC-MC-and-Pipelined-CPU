@@ -49,6 +49,18 @@ The ALU module executes all the logic and arithmetic operations.
 
 ### RegisterFile
 
+For the Register File, we need to create a Register module that can hold 32 bits. The register has synchronous write and asynchronous read.
+![image](https://user-images.githubusercontent.com/56675566/168843307-f261eaea-8f6c-491a-8385-3d398f5aadd9.png)
+
+Also, a Decoder 5 to 32 bits module is created for the write enable of the registers. According to the 5 bit input, corresponding to the register number we want, a string of bits is created where the bit at index equal to the register number is '1' and all others are '0'.
+
+Lastly, a Mux is created. The Mux gets array of 32 arrays, each 32 bits, as input and outputs 32 bits. The selection happens through the decicated select signal.
+
+
+Using the above components, we create the Register File module 
+
+![image](https://user-images.githubusercontent.com/56675566/168846080-8f96f9a7-fd41-4e8f-b3f1-ba0086834559.png)
+
 ## Phase 2
 ## Phase 3
 ## Phase 4
