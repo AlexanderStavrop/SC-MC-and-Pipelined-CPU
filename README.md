@@ -63,6 +63,8 @@ Using the above components, we create the Register File module
 
 ![image](https://user-images.githubusercontent.com/56675566/168846080-8f96f9a7-fd41-4e8f-b3f1-ba0086834559.png)
 
+The Register R0 has always the value of 0 and this can not change.
+
 <br></br>
 ## <a href="https://github.com/AlexanderStavrop/Single-and-Multi-Cycle-CPU/tree/master/Phase_2">Phase 2</a>
 
