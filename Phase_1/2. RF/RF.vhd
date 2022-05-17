@@ -14,29 +14,29 @@ architecture Behavioral of RF is
 
 ---------------------------------------------------------- COMPONENTS -------------------------------------------------------------
 	component Decoder5to32 is
-		port( DataIn  		: in  std_logic_vector (4 downto 0);
-			  DataOut 		: out std_logic_vector (31 downto 0)
+		port( DataIn  	   : in  std_logic_vector (4 downto 0);
+			  DataOut 	   : out std_logic_vector (31 downto 0)
        );
 	end component;
 
 	component Register32 is
-		port( CLK, RST, WE 	: in  std_logic;
-			  DataIn       	: in  std_logic_vector (31 downto 0);
-			  DataOut     	: out std_logic_vector (31 downto 0)
+		port( CLK, RST, WE : in  std_logic;
+			  DataIn       : in  std_logic_vector (31 downto 0);
+			  DataOut      : out std_logic_vector (31 downto 0)
 		);
 	end component;
 	
 	component GenericMux32 is
-		port( DataIn  		: in  MuxMatrix32(31 downto 0);
-			  DataSel 		: in  std_logic_vector(4 downto 0);
-			  DataOut 		: out std_logic_vector(31 downto 0)
+		port( DataIn  	   : in  MuxMatrix32(31 downto 0);
+			  DataSel 	   : in  std_logic_vector(4 downto 0);
+			  DataOut 	   : out std_logic_vector(31 downto 0)
       );
 	end component;
 		
 	-- Needed signals
-	signal andOut : std_logic_vector(31 downto 0);
-	signal decOut : std_logic_vector(31 downto 0);
-	signal regOut : MuxMatrix32(31 downto 0);
+	signal andOut : std_logic_vector(31 downto 0) := (others => '0');
+	signal decOut : std_logic_vector(31 downto 0) := (others => '0');
+	signal regOut : MuxMatrix32(31 downto 0) := (others => (others => '0'));
 	signal R0Data : std_logic_vector(31 downto 0) := (others => '0');
 	
 begin

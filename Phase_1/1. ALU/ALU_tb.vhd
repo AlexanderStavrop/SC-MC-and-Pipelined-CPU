@@ -21,7 +21,7 @@ architecture bench of ALU_tb is
 	signal Op   : STD_LOGIC_VECTOR  (3 downto 0) := (others => '0');
   
 	-- Output Signals
-	signal Dout                   : STD_LOGIC_VECTOR (31 downto 0);
+	signal Dout            : STD_LOGIC_VECTOR (31 downto 0);
 	signal Zero, Cout, Ovf : STD_LOGIC;
 	  
 begin

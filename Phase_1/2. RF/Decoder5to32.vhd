@@ -51,6 +51,6 @@ begin
 					"10000000000000000000000000000000" when "11111", 	-- Case for DataIn code 31.
 					"00000000000000000000000000000000" when others;  	-- Case for every other DataIn.
 
-	DataOut <= IN_out after 10ns;															   				-- Setting the DataOut variable accordingly.
+	DataOut <= IN_out after 10ns;										-- Setting the DataOut variable accordingly.
 end Behavioral;
 
