@@ -3,7 +3,7 @@
 This project is about creating a single-cycle, a multi-cycle and a pipelined cpu using VHDL
 
 The project consists of 5 Phases 
-  - Phase 1 through 3 are about the single-cycle cpu
+  - Phase 1, Phase 2, Phase 3 are about the single-cycle cpu
   - Phase 4 is about the Multi-Cycle cpu
   - Phase 5 is about the Pipelined cpu
 
@@ -57,7 +57,7 @@ Also, a Decoder 5 to 32 bits module is created for the write enable of the regis
 Lastly, a Mux is created. The Mux gets array of 32 arrays, each 32 bits, as input and outputs 32 bits. The selection happens through the decicated select signal.
 
 
-Using the above components, we create the Register File module 
+Using the above components, we create the Register File module
 
 ![image](https://user-images.githubusercontent.com/56675566/168846080-8f96f9a7-fd41-4e8f-b3f1-ba0086834559.png)
 
