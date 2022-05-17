@@ -66,7 +66,7 @@ Using the above components, we create the Register File module
 <br></br>
 ## <a href="https://github.com/AlexanderStavrop/Single-and-Multi-Cycle-CPU/tree/master/Phase_2">Phase 2</a>
 
-In these phase the IFSTAGE, DECSTAGE, EXSTAGE and MEMSTAGE modules are created.
+In these phase the Ram, IFSTAGE, DECSTAGE, EXSTAGE and MEMSTAGE modules are created.
 ## Phase 3
 ## Phase 4
 ## Phase 5
