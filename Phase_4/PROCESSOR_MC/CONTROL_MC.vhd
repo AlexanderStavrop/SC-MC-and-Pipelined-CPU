@@ -141,14 +141,14 @@ begin
 								PC_LdEn 	  	<= '1';	 			 	 	-- Setting PC load enable on						
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
-			when Branch_Prep => if (Opcode = "000000"  or Opcode = "000001") then				 
+			when Branch_Prep => ImmExt_s  <= "11";			     	 		-- Performing sign extend and 2 left shifts (b - beq - bne)
+								if (Opcode = "000000"  or Opcode = "000001") then				 
 									RF_B_sel  <= '1';				 	 	-- Choosing Rt as RF_B 
-									ImmExt_s  <= "11";			     	 	-- Performing sign extend and 2 left shifts (beq - bne)
 									RF_A_WrEn <= '1';				 	 	-- Setting RF_A Register write enable on
 									RF_B_WrEn <= '1';				  	 	-- Setting RF_B Register write enable on
 									NextState <= Branch_Exec;		 	 	-- Selecting the next state			
 								else 
-									NextState   <= Branch_End; 		 	 	-- Selecting the next state
+									NextState <= Branch_End; 		 	 	-- Selecting the next state
 								end if;	
 ----------------------------------------------------------------------------------------------------------------------------------------------------------			
 			when Branch_Exec => RF_A_WrEn	    <= '0';				 	 	-- Setting RF_A Register write enable off

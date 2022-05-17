@@ -2,9 +2,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity Register32 is
-    Port ( CLK, RST, WE : in  STD_LOGIC;
-		   DataIn 		: in  STD_LOGIC_VECTOR (31 downto 0);
-		   DataOut 		: out STD_LOGIC_VECTOR (31 downto 0)
+    Port ( CLK, RST, WE : in  std_logic;
+		   DataIn 		: in  std_logic_vector (31 downto 0);
+		   DataOut 		: out std_logic_vector (31 downto 0)
 	 );
 end Register32;
 
