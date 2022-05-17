@@ -107,7 +107,21 @@ The Decode unit is responsible for using the instruction to select the registers
 
 ![image](https://user-images.githubusercontent.com/56675566/168861593-ae8c244b-a304-40b4-8ac2-b1f9c66b7e10.png)
 
-
+**Inputs and Outputs**
+| Signal         |  Type  | Bit Length |  Description                                                                                     |   
+|  :-:           |  :-:   |     :-:  	|        :-  	                                                                                      | 
+|  CLK           | Input  |    1 Bit   | Clock pulse input                                                                                |
+|  Reset         | Input  |    1 Bit   | Reset signal input                                                                               |
+|  RF_WrEn       | Input  |    1 Bit   | Write enable signal of Register File                                                             |
+|  RF_B_sel      | Input  |    1 Bit   | Select signal for the Mux that chooses between the Rt and Rd register                            |
+|  RF_WrData_sel | Input  |    1 Bit   | Select signal for the Mux that chooses between the result of the ALU and the Data for the Memory |
+|  immExt        | Input  |    2 Bits  | Select signal for the module performing the 32 bits extend of the Immediate value                |
+|  Instr         | Input  |   32 Bits  | Current instruction from the memory                                                              |
+|  ALU_out       | Input  |   32 Bits  | Result of ALU                                                                                    |
+|  MEM_out 			 | Input  |   32 Bits  | Data read from Memory                                                                            |
+|  Immed 	       | Output |   32 Bits  | Immed value extended to 32 bits                                                                  |
+|  RF_A 	       | Output |   32 Bits  | Value stored in the first selected register                                                      |
+|  RF_B	         | Output |   32 Bits  | Value stored in the second selected register                                                     |
 
 ## Phase 3
 ## Phase 4
