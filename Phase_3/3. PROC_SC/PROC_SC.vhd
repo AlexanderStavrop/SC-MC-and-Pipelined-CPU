@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity PROC_SC is
-	port (Clk, Reset, PC_LdEnbl : std_logic);
+	port (Clk, Reset, PC_LdEnbl : in std_logic);
 end PROC_SC;
 
 architecture Behavioral of PROC_SC is

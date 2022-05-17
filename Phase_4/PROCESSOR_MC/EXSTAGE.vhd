@@ -50,13 +50,13 @@ begin
 	
 ------------------------------------------------------- ALU -------------------------------------------------------
 	ALU_module:ALU
-		port map ( A 	=> RF_A,
-				   B    => mux_32_out,
-				   Op 	=> ALU_func,
-				   Dout => ALU_out,
-				   zero => ALU_zero,
-				   Cout => ALU_cout,
-				   Ovf  => ALU_ovf
+		port map ( A 	   => RF_A,
+				   B       => mux_32_out,
+				   Op 	   => ALU_func,
+				   Dout    => ALU_out,
+				   zero    => ALU_zero,
+				   Cout    => ALU_cout,
+				   Ovf     => ALU_ovf
 		); 
 		
 end Behavioral;
