@@ -24,7 +24,7 @@ begin
 					IN_out <= DataIn;				-- Updating the Output from the corresponding variable after 12ns.
 				end if;
 			end if;
-		DataOut <= IN_out after 10ns;				-- Setting the DataOut with the corresponding value and adding 12ns of delay.
+		DataOut <= IN_out after 10ns;				-- Setting the DataOut with the corresponding value and adding 10ns of delay.
 	end process;
 	
 end Behavioral;
