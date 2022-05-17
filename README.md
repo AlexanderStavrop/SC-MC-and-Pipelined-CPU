@@ -82,10 +82,6 @@ Using the above components, we create the IFSTAGE module
 ![image](https://user-images.githubusercontent.com/56675566/168852709-897d5557-9144-400f-a023-e5dc68ab4610.png)
 
 
-
-
-
-
 ## Phase 3
 ## Phase 4
 ## Phase 5
