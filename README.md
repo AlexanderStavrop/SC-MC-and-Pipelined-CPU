@@ -60,9 +60,9 @@ The Register File holds the registers and is responsible for writing and reading
 |  CLK   | Input  |    1 Bit   | Clock pulse input                                |
 |  Reset | Input  |    1 Bit   | Reset signal input                               |
 |  WrEn  | Input  |    1 Bit   | Write enable of register file                    |
-|  Ard1  | Input  |    4 Bits  | Select signal of the first Mux                   |
-|  Ard2  | Input  |    4 Bits  | Select signal of the second Mux                  |
-|  AWR   | Input  |    4 Bits  | Balue selecting which register has Write enable  |
+|  Ard1  | Input  |    5 Bits  | Select signal of the first Mux                   |
+|  Ard2  | Input  |    5 Bits  | Select signal of the second Mux                  |
+|  AWR   | Input  |    5 Bits  | Balue selecting which register has Write enable  |
 |  Din   | Input  |   32 Bits  | Data to be writen in a register                  |
 |  Dout1 | Output |   32 Bits  | Value of the first selected Register             |
 |  Dout2 | Output |   32 Bits  | Value of the first selected Register             |
@@ -87,13 +87,25 @@ The instruction fetch unit is responsible for calculating the memory address whe
 
 ![image](https://user-images.githubusercontent.com/56675566/168852709-897d5557-9144-400f-a023-e5dc68ab4610.png)
 
+**Inputs and Outputs**
+| Signal    |  Type  | Bit Length |  Description                                     |   
+|  :-:      |  :-:   |     :-:  	|        :-  	                                     | 
+|  CLK      | Input  |    1 Bit   | Clock pulse input                                |
+|  Reset    | Input  |    1 Bit   | Reset signal input                               |
+|  PC_sel   | Input  |    1 Bit   | Select signal of the Mux                         |
+|  PC_LdEn  | Input  |    1 Bit   | Write enable signal of the PC register           |
+|  PC_Immed | Input  |   32 Bits  | Value of Immediate extended in 32 bits           |
+|  PC 	    | Output |   32 Bits  | Value of PC                                      |
 
 - **Adder4:** This module has one 32 bit input and is responsible for adding 4 to the value of PC (PC+4). The output of the adder has a 10ns delay.
 - **Adder32:** This module has two 32 bit inputs and is responsible for adding the value of (PC+4) and the value of Immediate (from DECSTAGE). The output of the adder has a 10ns delay.
 - **Mux32:** This module has two 32 bit inputs, one for each adder result and the output is selected with the dedicated select signal. The output of the Mux has a 10ns delay.
 - **Register32:** This module is the same as the one created in Phase 1.
 
+### DECSTAGE 
+The Decode unit is responsible for using the instruction to select the registers needed for the execution of the operation and extending the value of Immed to 32 bits. 
 
+![image](https://user-images.githubusercontent.com/56675566/168861593-ae8c244b-a304-40b4-8ac2-b1f9c66b7e10.png)
 
 
 
