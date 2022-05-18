@@ -86,11 +86,12 @@ BEGIN
 	-- Running the processor for 22 cycles
 	    ----------------------------------- 200ns		
 		Reset <= '0';
-		wait for clk_period*45; -- For test 1
-		----------------------------------- 3,510
+		wait for clk_period*45;  -- For test 1,2
+		wait for clk_period*135; -- For test 3
+		----------------------------------- ????ns
 		stop_the_clock <= true;
 		wait;
    end process;
 
-END;   
+END;    
 

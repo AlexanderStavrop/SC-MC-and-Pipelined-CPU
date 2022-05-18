@@ -6,11 +6,11 @@ use ieee.std_logic_textio.all;
 
 -- Creating the entity of Ram
 entity Ram is
-	port ( 	clk, data_we 			 	   : in  std_logic;
+	port ( 	clk, data_we 			  : in  std_logic;
 				inst_addr, data_addr  : in  std_logic_vector(10 downto 0);
-				data_din 				 	   : in  std_logic_vector(31 downto 0);
-				inst_dout				 	   : out std_logic_vector(31 downto 0);
-				data_dout 				 	   : out std_logic_vector(31 downto 0)
+				data_din 			  : in  std_logic_vector(31 downto 0);
+				inst_dout			  : out std_logic_vector(31 downto 0);
+				data_dout 			  : out std_logic_vector(31 downto 0)
 	);
 	end RAM;
 
@@ -36,7 +36,7 @@ architecture syn of RAM is
 	end function; 
 	 
 	--Creating the needed signal  
-	signal RAM: ram_type := InitRamFromFile("rom1.data");
+	signal RAM: ram_type := InitRamFromFile("rom3.data");
 	
 	begin
 		process (clk)
