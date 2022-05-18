@@ -1,4 +1,4 @@
-# Single-and-Multi-Cycle-CPU
+# Single Cycle - Multi Cycle - Pipelined CPU
 
 This project is about creating a single-cycle, a multi-cycle and a pipelined cpu using VHDL
 
