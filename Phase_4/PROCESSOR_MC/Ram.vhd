@@ -49,5 +49,5 @@ architecture syn of RAM is
 	end process;
 	
 	data_dout <= RAM(conv_integer(data_addr)) after 12ns;
-	inst_dout   <= RAM(conv_integer(inst_addr))   after 12ns;
+	inst_dout <= RAM(conv_integer(inst_addr)) after 12ns;
 end syn;
