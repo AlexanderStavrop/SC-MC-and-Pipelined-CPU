@@ -103,7 +103,7 @@ The instruction fetch unit is responsible for calculating the memory address whe
 - **Register32:** This module is the same as the one created in Phase 1.
 
 ### DECSTAGE 
-The Decode unit is responsible for using the instruction to select the registers needed for the execution of the operation and extending the value of Immed to 32 bits. 
+The Decode unit is responsible for using the instruction to select the registers needed for the execution of the operation and extending the value of Immed to 32 bits. The module consists of 2 Muxes, the Register File created in phase 1 and the Immed16to32 module.
 
 ![image](https://user-images.githubusercontent.com/56675566/168861593-ae8c244b-a304-40b4-8ac2-b1f9c66b7e10.png)
 
@@ -122,6 +122,18 @@ The Decode unit is responsible for using the instruction to select the registers
 |  Immed 	       | Output |   32 Bits  | Immed value extended to 32 bits                                                                  |
 |  RF_A 	       | Output |   32 Bits  | Value stored in the first selected register                                                      |
 |  RF_B	         | Output |   32 Bits  | Value stored in the second selected register                                                     |
+
+- **Mux5:** This module has two 5 bit input and is responsible for selecting the second register which output will be visible through RF_B. The output is selected with the dedicated select signal and it has a 10ns delay.
+- **Mux32:** This module has two 32 bit input and is responsible for selecting between the result of the ALU and the data read from memory, as the data to be writen in a register. The output is selected with the dedicated select signal and it has a 10ns delay.
+- **RF:** This module is the same as the one created in Phase 1.
+- **Immed16to32:** This module is responsible for extending the Immed value from 16 to 32 bits. The operation is selected by dedicated 2 bit select signal. The available operations are as follows:
+  - "00" : zerofill on the upper 16 bits
+  - "01" : sign extend 
+  - "10" : zerofill on the lower 16 bits
+  - "11" : sign extend and 2 left shifts
+
+
+
 
 ## Phase 3
 ## Phase 4
