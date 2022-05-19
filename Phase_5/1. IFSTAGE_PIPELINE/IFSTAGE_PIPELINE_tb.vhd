@@ -45,7 +45,7 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: IFSTAGE_PIPELINE 
-		PORT MAP ( Clk      => Clk,
+		Port map ( Clk      => Clk,
 				   PC_sel   => PC_sel,
 				   PC_LdEn  => PC_LdEn,
 				   PC_Immed => PC_Immed,
@@ -55,7 +55,7 @@ BEGIN
 		);
 	
 	RAM_MODULE: RAM
-		PORT MAP ( clk        => Clk, 
+		Port map ( clk        => Clk, 
 				   data_we    => '0',
 				   inst_addr  => PC (12 downto 2),
 				   data_addr  => "00000000000",
