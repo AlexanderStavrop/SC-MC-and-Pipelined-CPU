@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/Users/Alex/Documents/ise/proc_mc/PROCESSOR_MC_tb_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="C:/Users/Alex/Documents/ise/Control_mc/PROCESSOR_MC_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="genericmux32_pkg" />
             <top_module name="mux32_pkg" />
@@ -18,7 +18,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="22" />
+   <WVObjectSize size="23" />
    <wvobject fp_name="/processor_mc_tb/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -196,5 +196,9 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="CustomSignalColor">#008000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_mc_tb/uut/Datapath_module/DEC_module/RegisterFile/\gen_reg(6)\/rx/RegX/dataout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dataout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dataout[31:0]</obj_property>
    </wvobject>
 </wave_config>

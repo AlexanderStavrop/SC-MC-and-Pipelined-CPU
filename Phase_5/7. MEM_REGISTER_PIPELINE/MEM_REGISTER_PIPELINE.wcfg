@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Alex/Documents/ise/MEM_REGISTER_PIPELINE/MEM_REGISTER_PIPELINE_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="mem_register_pipeline_tb" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/mem_register_pipeline_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/wb_1_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_1_in</obj_property>
+      <obj_property name="ObjectShortName">wb_1_in</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/wb_2_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_2_in</obj_property>
+      <obj_property name="ObjectShortName">wb_2_in</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/wb_1_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_1_out</obj_property>
+      <obj_property name="ObjectShortName">wb_1_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/wb_2_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_2_out</obj_property>
+      <obj_property name="ObjectShortName">wb_2_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/mem_data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_data_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_in[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/mem_data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/alures_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alures_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alures_in[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/alures_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alures_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alures_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/rd_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rd_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_in[4:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mem_register_pipeline_tb/rd_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rd_out[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_out[4:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+</wave_config>

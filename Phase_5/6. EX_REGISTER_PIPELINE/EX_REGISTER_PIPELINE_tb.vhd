@@ -162,7 +162,7 @@ begin
 ----------------------------------------------------------------------------------------------------------------------------------
 	-- Testing if the RST works correctly.
 		-------------------------------------------------------------------------------------------------------------------------- 500ns
-		RST 	 <= '1';									-- Reset will be set to 1 for the following tests
+		RST 	    <= '1';									-- Reset will be set to 1 for the following tests
 		WB_1_IN  	<= '1'; 								-- Setting WB_1 input equal to 1
 		WB_2_IN  	<= '1'; 								-- Setting WB_2 input equal to 1
 		M_1_IN   	<= '1'; 								-- Setting M_1 input equal to 1

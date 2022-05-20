@@ -87,7 +87,7 @@ BEGIN
 	    ----------------------------------- 200ns		
 		Reset <= '0';
 		wait for clk_period*45;  -- For test 1,2
-		--wait for clk_period*135; -- For test 3
+		wait for clk_period*135; -- For test 3
 		----------------------------------- ????ns
 		stop_the_clock <= true;
 		wait;

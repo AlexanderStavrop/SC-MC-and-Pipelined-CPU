@@ -87,7 +87,6 @@ begin
 								end if;
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
-					
 			when R_Type_Prep => RF_B_sel 	 	<= '0';				  	 	-- Choosing Rd as RF_B (ALU_Function)	
 								RF_A_WrEn	 	<= '1';				  	 	-- Setting RF_A Register write enable on
 								RF_B_WrEn	  	<= '1';				  	 	-- Setting RF_B Register write enable on
@@ -172,12 +171,7 @@ begin
 			when LoadStore_Prep => RF_A_WrEn   		 <= '1';				-- Setting RF_A Register write enable on
 								   RF_B_sel    		 <= '1';				-- Choosing Rt as RF_B 
 								   ImmExt_s    		 <= "01";			    -- Performing sign extend
-								   if (Opcode = "000011" or Opcode = "000111") then
-									   ByteOp  		 <= '1';				-- Setting Byte operation equal to 1 (lb - sb)						
-									else
-									   ByteOp  		 <= '0';				-- Setting Byte operation equal to 0 (lw - sw)	
-								    end if;
-								    NextState  		 <= LoadStore_Exec;     -- Setting the next state 
+								   NextState  		 <= LoadStore_Exec;     -- Setting the next state 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------																	
 			when LoadStore_Exec => RF_A_WrEn   		 <= '0';				-- Setting RF_A Register write enable off
 								   RF_B_WrEn   	 	 <= '1';				-- Setting RF_B Register write enable on
@@ -186,8 +180,14 @@ begin
 								   ALUOut_Reg_WrEn 	 <= '1';				-- Setting the ALU_OUT Register write enable on	
 								   NextState   		 <= LoadStore_Fetch;	-- Setting the next state 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
-			when LoadStore_Fetch => ALUOut_Reg_WrEn	<= '0';					-- Setting the ALU_OUT Register write enable on	
-								    if (Opcode = "000111" or Opcode = "011111") then
+			when LoadStore_Fetch => ALUOut_Reg_WrEn	 <= '0';				-- Setting the ALU_OUT Register write enable on	
+								    if (Opcode = "000011" or Opcode = "000111") then
+									   ByteOp  		 <= '1';				-- Setting Byte operation equal to 1 (lb - sb)						
+									else
+									   ByteOp  		 <= '0';				-- Setting Byte operation equal to 0 (lw - sw)	
+									end if;
+									
+									if (Opcode = "000111" or Opcode = "011111") then
 									    RF_B_WrEn 	 <= '0';				-- Setting RF_B Register write enable off
 										Mem_WrEn  	 <= '1';				-- Setting the Memory write eneble on
 										NextState 	 <= Instr_Fetch;		-- Setting the next state 
@@ -208,7 +208,7 @@ begin
 									 NextState       <= Instr_Fetch;	 	-- Setting the next state
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------									 
-			when others 		  => NextState      <= Instr_Fetch; 		-- Setting the next state
+			when others	=> NextState <= Instr_Fetch; 						-- Setting the next state
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 		end case;
 	end process;
