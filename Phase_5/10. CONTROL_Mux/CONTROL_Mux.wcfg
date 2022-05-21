@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Alex/Documents/ise/CONTROL_Mux/CONTROL_Mux_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="control_mux_tb" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/control_mux_tb/regwrite_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">regwrite_in</obj_property>
+      <obj_property name="ObjectShortName">regwrite_in</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/regwrite_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">regwrite_out</obj_property>
+      <obj_property name="ObjectShortName">regwrite_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/memtoreg_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">memtoreg_in</obj_property>
+      <obj_property name="ObjectShortName">memtoreg_in</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/memtoreg_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">memtoreg_out</obj_property>
+      <obj_property name="ObjectShortName">memtoreg_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/pcsrc_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pcsrc_in</obj_property>
+      <obj_property name="ObjectShortName">pcsrc_in</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/pcsrc_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pcsrc_out</obj_property>
+      <obj_property name="ObjectShortName">pcsrc_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/membyteop_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">membyteop_in</obj_property>
+      <obj_property name="ObjectShortName">membyteop_in</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/membyteop_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">membyteop_out</obj_property>
+      <obj_property name="ObjectShortName">membyteop_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/memwrite_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">memwrite_in</obj_property>
+      <obj_property name="ObjectShortName">memwrite_in</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/memwrite_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">memwrite_out</obj_property>
+      <obj_property name="ObjectShortName">memwrite_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/alusrc_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">alusrc_in</obj_property>
+      <obj_property name="ObjectShortName">alusrc_in</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/alusrc_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">alusrc_out</obj_property>
+      <obj_property name="ObjectShortName">alusrc_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/alu_func_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_func_in[3:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_func_in[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/alu_func_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_func_out[3:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_func_out[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/regdst_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">regdst_in</obj_property>
+      <obj_property name="ObjectShortName">regdst_in</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/regdst_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">regdst_out</obj_property>
+      <obj_property name="ObjectShortName">regdst_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/immext_s_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">immext_s_in[1:0]</obj_property>
+      <obj_property name="ObjectShortName">immext_s_in[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/immext_s_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">immext_s_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">immext_s_out[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_mux_tb/datasel" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">datasel</obj_property>
+      <obj_property name="ObjectShortName">datasel</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+</wave_config>

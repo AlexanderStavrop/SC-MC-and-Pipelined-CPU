@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Alex/Documents/ise/Forward_Unit/Forward_Unit_Testbench_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="forward_unit_testbench" />
+            <top_module name="mux3to32_pkg" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/forward_unit_testbench/dec_reg_rf_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_reg_rf_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_reg_rf_a[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/dec_reg_rf_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_reg_rf_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_reg_rf_b[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/dec_reg_write_mux" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_reg_write_mux[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_reg_write_mux[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/ex_reg_alu_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ex_reg_alu_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_reg_alu_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/ex_reg_regwrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ex_reg_regwrite</obj_property>
+      <obj_property name="ObjectShortName">ex_reg_regwrite</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/ex_reg_rd" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ex_reg_rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_reg_rd[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/mem_reg_regwrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_reg_regwrite</obj_property>
+      <obj_property name="ObjectShortName">mem_reg_regwrite</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/mem_reg_rd" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_reg_rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_reg_rd[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/dec_reg_rs" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_reg_rs[4:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_reg_rs[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/fu_upmux_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fu_upmux_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fu_upmux_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/dec_reg_rdrt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_reg_rdrt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_reg_rdrt[4:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/forward_unit_testbench/fu_downmux_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fu_downmux_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fu_downmux_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

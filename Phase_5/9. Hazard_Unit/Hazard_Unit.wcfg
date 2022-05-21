@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Alex/Documents/ise/Hazard_Unit/Hazard_Unit_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="hazard_unit_tb" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/hazard_unit_tb/dec_reg_memtoreg" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_reg_memtoreg</obj_property>
+      <obj_property name="ObjectShortName">dec_reg_memtoreg</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hazard_unit_tb/dec_rs" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_rs[4:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_rs[4:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hazard_unit_tb/dec_rt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_rt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_rt[4:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hazard_unit_tb/dec_reg_rdrt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_reg_rdrt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_reg_rdrt[4:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hazard_unit_tb/pc_lden" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_lden</obj_property>
+      <obj_property name="ObjectShortName">pc_lden</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hazard_unit_tb/if_reg_wren" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">if_reg_wren</obj_property>
+      <obj_property name="ObjectShortName">if_reg_wren</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hazard_unit_tb/hunit_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">hunit_out</obj_property>
+      <obj_property name="ObjectShortName">hunit_out</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+</wave_config>
