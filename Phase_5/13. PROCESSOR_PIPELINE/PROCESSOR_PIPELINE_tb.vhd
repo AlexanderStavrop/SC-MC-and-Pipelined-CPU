@@ -7,7 +7,7 @@ END PROCESSOR_PIPELINE_tb;
 ARCHITECTURE behavior OF PROCESSOR_PIPELINE_tb IS 
  
 	-- Component Declaration for the Unit Under Test (UUT)
-	component PROC_PIPELINE
+	component PROCESSOR_PIPELINE
 		port( Clk, Reset : in  std_logic);
     end component;
     
@@ -22,7 +22,7 @@ ARCHITECTURE behavior OF PROCESSOR_PIPELINE_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-	uut: PROC_PIPELINE 
+	uut: PROCESSOR_PIPELINE 
 		PORT MAP ( Clk 		 => Clk,
 				   Reset  	 => Reset
 		);
@@ -47,11 +47,11 @@ BEGIN
 		Reset <= '1';
 		wait for clk_period*2;	
 		----------------------------------- 200ns		
+		Reset <= '0';
 
 ------------------------------------------- 200ns
-	-- Running the processor for 22 cycles
+	-- Running the processor for ?? cycles
 	    ----------------------------------- 200ns		
-		Reset <= '0';
 		wait for clk_period*22;
 		----------------------------------- 2200ns
 		stop_the_clock <= true;

@@ -2,14 +2,14 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.std_logic_arith.all;
 
-entity MEMSTAGE_PIPELINE is
+entity MEMSTAGE is
     Port ( 	ByteOp, Mem_WrEn					: in  std_logic;
 			ALU_MEM_Addr, MEM_DataIn, MM_RdData : in  std_logic_vector (31 downto 0);
 			MM_WrEn 							: out std_logic;
 			MM_Addr, MM_WrData, MEM_DataOut	  	: out std_logic_vector (31 downto 0));
-end MEMSTAGE_PIPELINE;
+end MEMSTAGE;
 
-architecture Behavioral of MEMSTAGE_PIPELINE is		
+architecture Behavioral of MEMSTAGE is		
 	
 	-- Needed signals
 	signal instaction_addr 							 : std_logic_vector (31 downto 0) := (others => '0');
