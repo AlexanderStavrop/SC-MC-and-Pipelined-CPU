@@ -26,7 +26,7 @@ architecture Behavioral of CONTROL_MC is
 					   R_Type_Prep,   R_Type_Exec,   R_Type_End,
 					   I_Type_Prep,   I_Type_Exec,   I_Type_End,
 					   Branch_Prep,   Branch_Exec,   Branch_End, 
-					   LoadStore_Prep,LoadStore_Exec, LoadStore_Fetch, Load_Complition);
+					   LoadStore_Prep,LoadStore_Exec, LoadStore_End, Load_Complition);
 	signal CurrState, NextState: StateType;
 
 	-- Needed signals
