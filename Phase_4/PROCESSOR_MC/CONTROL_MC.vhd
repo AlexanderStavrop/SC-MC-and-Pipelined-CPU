@@ -178,26 +178,26 @@ begin
 								   ALU_func    		 <= "0000";   			-- Choosing Addition as the ALU func
 								   ALU_Bin_sel 		 <= '1';				-- Choosing Immed as the second Alu input
 								   ALUOut_Reg_WrEn 	 <= '1';				-- Setting the ALU_OUT Register write enable on	
-								   NextState   		 <= LoadStore_Fetch;	-- Setting the next state 
+								   NextState   		 <= LoadStore_End;		-- Setting the next state 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
-			when LoadStore_Fetch => ALUOut_Reg_WrEn	 <= '0';				-- Setting the ALU_OUT Register write enable on	
-								    if (Opcode = "000011" or Opcode = "000111") then
-									   ByteOp  		 <= '1';				-- Setting Byte operation equal to 1 (lb - sb)						
-									else
-									   ByteOp  		 <= '0';				-- Setting Byte operation equal to 0 (lw - sw)	
-									end if;
-									
-									if (Opcode = "000111" or Opcode = "011111") then
-									    RF_B_WrEn 	 <= '0';				-- Setting RF_B Register write enable off
-										Mem_WrEn  	 <= '1';				-- Setting the Memory write eneble on
-										NextState 	 <= Instr_Fetch;		-- Setting the next state 
-										-- Setting variables for Instruction fetch --------------------------
-										PC_sel    	 <= '0';	 	     	-- Incrementing the PC by 4
-										PC_LdEn      <= '1';	 		 	-- Setting PC load enable on	
-								    else
-										Mem_Reg_WrEn <= '1';				-- Setting the Memory Register write enable on
-										NextState    <= Load_Complition;	-- Setting the next state 
-								    end if;
+			when LoadStore_End => ALUOut_Reg_WrEn	 <= '0';				-- Setting the ALU_OUT Register write enable on	
+					      		  if (Opcode = "000011" or Opcode = "000111") then
+					          	      ByteOp  		 <= '1';				-- Setting Byte operation equal to 1 (lb - sb)						
+					      		  else
+					          	      ByteOp  		 <= '0';				-- Setting Byte operation equal to 0 (lw - sw)	
+					      		  end if;
+					      				
+					 	  		  if (Opcode = "000111" or Opcode = "011111") then
+						      	      RF_B_WrEn 	 <= '0';				-- Setting RF_B Register write enable off
+							  		  Mem_WrEn  	 <= '1';				-- Setting the Memory write eneble on
+							  		  NextState 	 <= Instr_Fetch;		-- Setting the next state 
+							  		  -- Setting variables for Instruction fetch --------------------------
+							  		  PC_sel    	 <= '0';	 	     	-- Incrementing the PC by 4
+							  		  PC_LdEn      <= '1';	 		 		-- Setting PC load enable on	
+						  		  else
+							  		  Mem_Reg_WrEn <= '1';					-- Setting the Memory Register write enable on
+							  		  NextState    <= Load_Complition;		-- Setting the next state 
+						  		  end if;
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 			when Load_Complition  => Mem_Reg_WrEn    <= '0';				-- Setting the Memory Register write enable off
 									 RF_WrEn 	     <= '1';				-- Setting the RF write enable on		
