@@ -51,3 +51,5 @@ The Decode unit is responsible for using the instruction to select the registers
   - "01" : sign extend 
   - "10" : zerofill on the lower 16 bits
   - "11" : sign extend and 2 left shifts
+
+## EXSTAGE 
