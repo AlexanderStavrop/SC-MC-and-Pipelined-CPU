@@ -11,7 +11,3 @@ The project consists of 5 Phases
 
 The Cpu is created based on the instruction set CHARIS
 ![image](https://user-images.githubusercontent.com/56675566/167747415-19aa0df1-ead7-447a-8ff4-63270c4d6872.png)
-
-## Phase 3
-## Phase 4
-## Phase 5
