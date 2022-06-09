@@ -1,4 +1,4 @@
-# <a href="https://github.com/AlexanderStavrop/Single-and-Multi-Cycle-CPU/tree/master/Phase_2">Phase 2</a>
+# Phase 2
 
 In these phase the Ram, IFSTAGE, DECSTAGE, EXSTAGE and MEMSTAGE modules are created.
 
