@@ -128,7 +128,7 @@ begin
 									ALU_func  	<= "0101";			     	-- Choosing Logical NAND as the ALU func (nandi) 
 								elsif (Opcode = "110011") then			 
 									ALU_func  	<= "0011";				 	-- Choosing Logical OR as the ALU func (ori)
-								end if;
+								eNextState <= Blink_On;nd if;
 								NextState       <= I_Type_End;		  	 	-- Selecting the next state	
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 			when I_Type_End  => ALUOut_Reg_WrEn <= '0';				 	 	-- Setting the ALU_OUT Register write enable off							
@@ -182,17 +182,17 @@ begin
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 			when LoadStore_End => ALUOut_Reg_WrEn	 <= '0';				-- Setting the ALU_OUT Register write enable on	
 					      		  if (Opcode = "000011" or Opcode = "000111") then
-					          	      ByteOp  		 <= '1';				-- Setting Byte operation equal to 1 (lb - sb)						
+					          	      ByteOp  		<= '1';				-- Setting Byte operation equal to 1 (lb - sb)						
 					      		  else
-					          	      ByteOp  		 <= '0';				-- Setting Byte operation equal to 0 (lw - sw)	
+					          	      ByteOp  		<= '0';				-- Setting Byte operation equal to 0 (lw - sw)	
 					      		  end if;
 					      				
 					 	  		  if (Opcode = "000111" or Opcode = "011111") then
-						      	      RF_B_WrEn 	 <= '0';				-- Setting RF_B Register write enable off
-							  		  Mem_WrEn  	 <= '1';				-- Setting the Memory write eneble on
-							  		  NextState 	 <= Instr_Fetch;		-- Setting the next state 
+						      	      RF_B_WrEn 	<= '0';				-- Setting RF_B Register write enable off
+							  		  Mem_WrEn      <= '1';				-- Setting the Memory write eneble on
+							  		  NextState    <= Instr_Fetch;		-- Setting the next state 
 							  		  -- Setting variables for Instruction fetch --------------------------
-							  		  PC_sel    	 <= '0';	 	     	-- Incrementing the PC by 4
+							  		  PC_sel       <= '0';	 	     	-- Incrementing the PC by 4
 							  		  PC_LdEn      <= '1';	 		 		-- Setting PC load enable on	
 						  		  else
 							  		  Mem_Reg_WrEn <= '1';					-- Setting the Memory Register write enable on
