@@ -17,12 +17,7 @@ entity GenericMux32 is
 	 );
 end GenericMux32;
 
-architecture Behavioral of GenericMux32 is
-
-	-- Needed signal
-	signal IN_out : std_logic_vector (31 downto 0);
-	
-	
+architecture Behavioral of GenericMux32 is	
 -------------------------------------------------- Main Functions --------------------------------------------------                                                                                        
 begin                          
 	DataOut <= DataIn(To_Integer(unsigned(DataSel))) after 10ns;  --Getting the vector from index(DataSel)	
